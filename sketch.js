@@ -1,4 +1,3 @@
-
 // A reference to our box2d world
 var world;
 
@@ -6,24 +5,24 @@ var world;
 var boxes = [];
 
 function setup() {
-  createCanvas(640,360);
+    createCanvas(640, 360);
 
-  // Initialize box2d physics and create the world
-  world = createWorld(new box2d.b2Vec2(0,0));
-  world.SetGravity(new box2d.b2Vec2(0,10));
+    // Initialize box2d physics and create the world
+    world = createWorld(new box2d.b2Vec2(0, 0));
+    world.SetGravity(new box2d.b2Vec2(0, 10));
 
 }
 
 function draw() {
-  background(51);
+    background(51);
 
-  // We must always step through time!
-  var timeStep = 1.0/frameRate();
-  world.Step(timeStep,10,10);
+    // We must always step through time!
+    var timeStep = 1.0 / frameRate();
+    world.Step(timeStep, 10, 10);
 
 
-  // Display all the boxes
-  for (var i = 0; i < boxes.length; i++) {
-    boxes[i].display();
-  }
+    // Display all the boxes
+    for (var i = 0; i < boxes.length; i++) {
+        boxes[i].display();
+    }
 }
