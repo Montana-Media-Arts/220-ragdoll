@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 
-//Ryan checking in
-
-=======
->>>>>>> 2fd3746e7f97f68c159e1311aee35f079789d838
 // A reference to our box2d world
 var world;
 
