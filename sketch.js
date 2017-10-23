@@ -17,6 +17,7 @@ function setup() {
 function draw() {
   background(51);
 
+  // We must always step through time!
   var timeStep = 1.0/frameRate();
   world.Step(timeStep,10,10);
 
