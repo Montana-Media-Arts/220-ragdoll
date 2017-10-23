@@ -1,5 +1,4 @@
 
-
 // A reference to our box2d world
 var world;
 
@@ -11,7 +10,7 @@ function setup() {
 
   // Initialize box2d physics and create the world
   world = createWorld(new box2d.b2Vec2(0,0));
-  world.SetGravity(new box2d.b2Vec2(0,20));
+  world.SetGravity(new box2d.b2Vec2(0,10));
 
 }
 
@@ -20,8 +19,6 @@ function draw() {
 
   // We must always step through time!
   var timeStep = 1.0/frameRate();
-  // 2nd and 3rd arguments are velocity and position iterations
-  // Position Iteration, adjusts how much, each object can reposition itself, per timestep.
   world.Step(timeStep,10,10);
 
 
