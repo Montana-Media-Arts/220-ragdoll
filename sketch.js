@@ -19,10 +19,7 @@ function draw() {
   background(51);
 
   // We must always step through time!
-  rect(10,100,50,50);
   var timeStep = 1.0/frameRate();
-  // 2nd and 3rd arguments are velocity and position iterations
-  // Position Iteration, adjusts how much, each object can reposition itself, per timestep.
   world.Step(timeStep,10,10);
 
 
