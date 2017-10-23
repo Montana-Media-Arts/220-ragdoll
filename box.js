@@ -1,6 +1,5 @@
-
 // A rectangular box
 
-function Box(x, y ) {
+function Box(x, y) {
 
 }
