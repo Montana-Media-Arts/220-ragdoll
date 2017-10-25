@@ -13,7 +13,7 @@ function setup() {
     world.SetGravity(new box2d.b2Vec2(0, 10));
 
     for (var i = 0; i < 2; i++) {
-      boxes[i] = new Limb(width/2, height/2);
+      boxes[i] = new Limb(100, 100);
     }
 
 }
