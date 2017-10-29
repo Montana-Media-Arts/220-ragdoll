@@ -6,7 +6,7 @@ var world;
 var boxes = [];
 
 function setup() {
-    createCanvas(200, 200);
+    createCanvas(windowWidth, windowHeight);
 
     // Initialize box2d physics and create the world
     world = createWorld(new box2d.b2Vec2(0, 0));
@@ -25,7 +25,7 @@ function draw() {
     var timeStep = 1.0 / frameRate();
     world.Step(timeStep, 10, 10);
 
-    !OH NO NEW CODE! XDXDXD
+    //!OH NO NEW CODE!
 
     // Display all the boxes
     for (var i = 0; i < boxes.length; i++) {
