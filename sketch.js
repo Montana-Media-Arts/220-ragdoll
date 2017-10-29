@@ -25,6 +25,7 @@ function draw() {
     var timeStep = 1.0 / frameRate();
     world.Step(timeStep, 10, 10);
 
+    //!OH NO NEW CODE!
 
     // Display all the boxes
     for (var i = 0; i < boxes.length; i++) {
