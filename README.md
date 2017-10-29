@@ -15,6 +15,6 @@ The midterm assignment for mart220
 
 5)  Joints       ~
 
-6)  Joint Restraints    ~
+6)  Ragdoll Appearance    ~
 
-7)  Ragdoll Appearance    ~
+7)  Joint Restraints    ~
