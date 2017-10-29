@@ -6,28 +6,29 @@ var world;
 var boxes = [];
 
 function setup() {
-    createCanvas(200, 200);
+    createCanvas(windowWidth, windowHeight);
 
     // Initialize box2d physics and create the world
-    world = createWorld(new box2d.b2Vec2(0, 0));
-    world.SetGravity(new box2d.b2Vec2(0, 10));
-
-    for (var i = 0; i < 2; i++) {
-      boxes[i] = new Limb(100, 100);
-    }
+    world = createWorld();
+    //world.SetGravity(new box2d.b2Vec2(0, 10)); < this didn't even do anything
 
 }
 
 function draw() {
     background(51);
 
+    var bx = new Box(width/2, height/2, 10, 10, false);
+    boxes.push(bx);
+
     // We must always step through time!
     var timeStep = 1.0 / frameRate();
     world.Step(timeStep, 10, 10);
 
-
     // Display all the boxes
-    for (var i = 0; i < boxes.length; i++) {
+    for (var i = boxes.length-1; i >= 0; i--) {
         boxes[i].display();
+        if (boxes[i].done()) {
+          boxes.splice(i, 1);
+        }
     }
 }
