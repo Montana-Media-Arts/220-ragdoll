@@ -5,14 +5,16 @@ The midterm assignment for mart220
 
 ## Jobs:
 
-"Bubbles"
+1)  Falling Physics     ~
 
-Camera
+2)  Camera        ~
 
-Joints
+3)  "Bubbles"     ~
 
-Joint Restraints
+4)  Mouse Control     ~
 
-Mouse Control
+5)  Joints       ~
 
-Falling Physics
+6)  Joint Restraints    ~
+
+7)  Ragdoll Appearance    ~
