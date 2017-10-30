@@ -26,9 +26,9 @@ function draw() {
     var timeStep = 1.0 /30;
     world.Step(timeStep, 10, 10);
 
-    for (var i = 0; i < boundaries.length; i ++) {
-      boundaries[i].display();
-    }
-
     box.display();
+  
+  for (var i = 0; i < boundaries.length; i++) {
+    boundaries[i].display();
+  }
 }
