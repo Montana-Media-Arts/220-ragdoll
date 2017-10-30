@@ -1,13 +1,12 @@
 // A rectangular box
 
-function Box(x, y, w, h, lock) {
+function Box(x, y, w, h) {
   this.w = w;
   this.h = h;
 
   // Define a body
   var bd = new box2d.b2BodyDef();
-  if (lock) bd.type = box2d.b2BodyType.b2_staticBody
-  else  bd.type = box2d.b2BodyType.b2_dynamicBody;
+  bd.type = box2d.b2BodyType.b2_dynamicBody;
   bd.position = scaleToWorld(x,y);
 
   // Define a fixture

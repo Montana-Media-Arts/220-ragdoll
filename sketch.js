@@ -3,7 +3,9 @@
 var world;
 
 // A list for all of our boxes
-var boxes = [];
+var box;
+
+var boundaries = [];
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -12,23 +14,21 @@ function setup() {
     world = createWorld();
     //world.SetGravity(new box2d.b2Vec2(0, 10)); < this didn't even do anything
 
+    box = new Box(width/2, height/2, 10, 10);
+
+    boundaries.push(new Boundary(width/2, height/2+100, 100, 10));
 }
 
 function draw() {
     background(51);
 
-    var bx = new Box(width/2, height/2, 10, 10, false);
-    boxes.push(bx);
-
     // We must always step through time!
-    var timeStep = 1.0 / frameRate();
+    var timeStep = 1.0 /30;
     world.Step(timeStep, 10, 10);
 
-    // Display all the boxes
-    for (var i = boxes.length-1; i >= 0; i--) {
-        boxes[i].display();
-        if (boxes[i].done()) {
-          boxes.splice(i, 1);
-        }
+    for (var i = 0; i < boundaries.length; i ++) {
+      boundaries[i].display();
     }
+
+    box.display();
 }
