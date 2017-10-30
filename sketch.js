@@ -14,7 +14,7 @@ function setup() {
     world = createWorld();
     //world.SetGravity(new box2d.b2Vec2(0, 10)); < this didn't even do anything
 
-    box = new Box(width/2, height/2, 10, 10);
+    box = new Box(width/2, height/2, 30, 30);
 
     boundaries.push(new Boundary(width/2, height/2+100, 100, 10));
 }

@@ -13,8 +13,8 @@
 
 
 function Limb(x, y) {
-  this.box1 = new Box(x, y, 50, 130, false);
-  this.box2 = new Box(x, y, 50, 130, false); //the box class has a final parameter
+  this.box1 = new Box(x, y, 20, 60);
+  this.box2 = new Box(x, y, 20, 70); //the box class has a final parameter
   //that'll set it to a static (true) or dynamic (false) body. mostly for testing
   //purposes. we won't need to make the ragdoll static -sr
 
