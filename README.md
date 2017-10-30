@@ -7,7 +7,7 @@ The midterm assignment for mart220
 
 ## Jobs:
 
-1)  Falling Physics     ~
+1)  Falling Physics     ~ SR completed 10/30
   Box falling within the physics library
 
 2)  Camera        ~
