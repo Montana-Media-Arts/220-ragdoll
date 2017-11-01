@@ -22,7 +22,7 @@ The midterm assignment for mart220
 
   Adding dynamically generated background objects to bounce off of
 
-4)  Mouse Control     ~
+4)  Mouse Control     ~   working
 
 
   Stopping Camera movement, and dragging the box within the frame. Altering it's position.
