@@ -1,12 +1,18 @@
-// A reference to our box2d world
+//image for background?
+var img;
+ // A reference to our box2d world
 var world;
-
 // A list for all of our boxes
 var box;
 
 var boundaries = [];
 
 var spring;
+
+function preload()
+{
+  // load image
+  img = loadImage("skytwo.jpg");
 
 function setup() {
      createCanvas(windowWidth, windowHeight);
@@ -26,6 +32,9 @@ function setup() {
 
 function draw() {
      background(0);
+
+     // display image (img, x, y)
+image(img, 0, 0);
 
      // We must always step through time!
      var timeStep = 1.0 / 30;
