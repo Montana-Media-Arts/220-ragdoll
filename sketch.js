@@ -1,4 +1,3 @@
-
 // A reference to our box2d world
 var world;
 
@@ -7,28 +6,47 @@ var box;
 
 var boundaries = [];
 
+var spring;
+
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+     createCanvas(windowWidth, windowHeight);
 
-    // Initialize box2d physics and create the world
-    world = createWorld();
-    //world.SetGravity(new box2d.b2Vec2(0, 10)); < this didn't even do anything
+     // Initialize box2d physics and create the world
+     world = createWorld();
+     //world.SetGravity(new box2d.b2Vec2(0, 10)); < this didn't even do anything
 
-    box = new Box(width/2, height/2, 30, 30);
+     spring = new Spring();
 
-    boundaries.push(new Boundary(width/2, height/2+100, 100, 10));
+     box = new Box(width / 2, height / 2, 30, 30);
+
+     boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10));
+     boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10));
+     boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), width / 2 - 100, 10));
 }
 
 function draw() {
-    background(51);
+     background(51);
 
-    // We must always step through time!
-    var timeStep = 1.0 /30;
-    world.Step(timeStep, 10, 10);
+     // We must always step through time!
+     var timeStep = 1.0 / 30;
+     world.Step(timeStep, 10, 10);
 
-    box.display();
-  
-  for (var i = 0; i < boundaries.length; i++) {
-    boundaries[i].display();
-  }
+     box.display();
+
+     spring.update(mouseX,mouseY);
+     // spring.display();
+
+     for (var i = 0; i < boundaries.length; i++) {
+          boundaries[i].display();
+     }
+}
+
+function mouseReleased() {
+     spring.destroy();
+}
+
+function mousePressed() {
+     if (box.contains(mouseX, mouseY)) {
+          spring.bind(mouseX, mouseY, box);
+     }
 }

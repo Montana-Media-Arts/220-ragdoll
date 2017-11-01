@@ -16,9 +16,9 @@ function Box(x, y, w, h) {
   fd1.shape.SetAsBox(scaleToWorld(this.w/2), scaleToWorld(this.h/2));
 
   // Some physics
-  fd1.density = 1.0;
-  fd1.friction = 0.5;
-  fd1.restitution = 0.2;
+  fd1.density = 10.0;
+  fd1.friction = 1;
+  fd1.restitution = 0.6;
 
   // Create the body
   this.body = world.CreateBody(bd);
