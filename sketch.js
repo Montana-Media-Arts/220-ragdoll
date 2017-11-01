@@ -9,12 +9,13 @@ var boundaries = [];
 
 var spring;
 
-//function preload()
-
-  // load image
-  img = loadImage("skytwo.jpg");
-
 function setup() {
+
+    // load image
+    img = loadImage("skytwo.jpg");
+
+    background(img)
+
      createCanvas(windowWidth, windowHeight);
 
      // Initialize box2d physics and create the world
@@ -31,16 +32,9 @@ function setup() {
 }
 
 function draw() {
-    // load image
-    img = loadImage("skytwo.jpg");
-
-     background(img);
-
-     // display image (img, x, y)
-     //image(img, 0, 0);
 
 
-     // We must always step through time!
+  // We must always step through time!
      var timeStep = 1.0 / 30;
      world.Step(timeStep, 10, 10);
 
