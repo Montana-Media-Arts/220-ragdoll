@@ -33,9 +33,6 @@ function setup() {
 function draw() {
      background(0);
 
-     // display image (img, x, y)
-image(img, 0, 0);
-
      // We must always step through time!
      var timeStep = 1.0 / 30;
      world.Step(timeStep, 10, 10);
