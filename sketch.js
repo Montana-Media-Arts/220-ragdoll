@@ -25,7 +25,8 @@ function setup() {
 }
 
 function draw() {
-backgroun(0);
+
+    background(0);
 
   // We must always step through time!
      var timeStep = 1.0 / 30;
