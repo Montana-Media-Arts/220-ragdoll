@@ -2,7 +2,7 @@
 
 The midterm assignment for mart220
 
-# STEP ONE: FALLING BOX
+# STEP TWO: CAMERA
 
 
 ## Jobs:
