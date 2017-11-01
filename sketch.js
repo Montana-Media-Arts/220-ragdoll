@@ -9,8 +9,8 @@ var boundaries = [];
 
 var spring;
 
-function preload()
-{
+//function preload()
+
   // load image
   img = loadImage("skytwo.jpg");
 
@@ -31,6 +31,9 @@ function setup() {
 }
 
 function draw() {
+    // load image
+    img = loadImage("skytwo.jpg");
+
      background(img);
 
      // display image (img, x, y)
