@@ -32,6 +32,10 @@ function setup() {
 
 function draw() {
      background(0);
+push();
+     // display image (img, x, y)
+     image(img, 0, 0);
+pop();
 
      // We must always step through time!
      var timeStep = 1.0 / 30;
