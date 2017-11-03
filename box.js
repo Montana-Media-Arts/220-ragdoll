@@ -1,13 +1,12 @@
 // A rectangular box
 
-function Box(x, y, w, h, lock) {
+function Box(x, y, w, h) {
   this.w = w;
   this.h = h;
 
   // Define a body
   var bd = new box2d.b2BodyDef();
-  if (lock) bd.type = box2d.b2BodyType.b2_staticBody
-  else bd.type = box2d.b2BodyType.b2_dynamicBody;
+  bd.type = box2d.b2BodyType.b2_dynamicBody;
   bd.position = scaleToWorld(x,y);
 
   // Define a fixture
@@ -17,9 +16,9 @@ function Box(x, y, w, h, lock) {
   fd1.shape.SetAsBox(scaleToWorld(this.w/2), scaleToWorld(this.h/2));
 
   // Some physics
-  fd1.density = 1.0;
-  fd1.friction = 0.5;
-  fd1.restitution = 0.2;
+  fd1.density = 10.0;
+  fd1.friction = 1;
+  fd1.restitution = 0.6;
 
   // Create the body
   this.body = world.CreateBody(bd);
@@ -35,6 +34,20 @@ function Box(x, y, w, h, lock) {
     var f = this.body.GetFixtureList();
     var inside = f.TestPoint(worldPoint);
     return inside;
+  };
+
+
+  this.killBody = function() {
+    world.DestroyBody(this.body);
+  }
+
+  this.done = function() {
+    var pos = scaleToPixels(this.body.GetPosition());
+    if (pos.y > height+this.w*this.h) {
+      this.killBody();
+      return true;
+    }
+    return false;
   };
 
   // Drawing the box
