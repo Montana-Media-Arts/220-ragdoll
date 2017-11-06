@@ -20,7 +20,7 @@ function setup() {
      world = createWorld();
      //world.SetGravity(new box2d.b2Vec2(0, 10)); < this didn't even do anything
 
-     limb = new Limb (width / 2, height / 2);
+     //limb = new Limb (width / 2, height / 2);
 
      spring = new Spring();
 
@@ -45,7 +45,7 @@ function draw() {
      spring.update(mouseX,mouseY);
      // spring.display();
 
-     limb.display();
+     //limb.display();
 
      for (var i = 0; i < boundaries.length; i++) {
        boundaries[i].display();
@@ -59,7 +59,7 @@ function mouseReleased() {
 }
 
 function mousePressed() {
-     if (limb.contains(mouseX, mouseY)) {
-          spring.bind(mouseX, mouseY, limb);
+     if (box.contains(mouseX, mouseY)) {
+          spring.bind(mouseX, mouseY, box);
      }
 }
