@@ -14,6 +14,8 @@ function Boundary(x_,y_, w_, h_) {
   this.w = w_;
   this.h = h_;
 
+  this.vector = new box2d.b2Vec2(random(-5, 5), random(2, 5))
+
   var fd = new box2d.b2FixtureDef();
   fd.density = 1.0;
   fd.friction = .01;
@@ -28,16 +30,25 @@ function Boundary(x_,y_, w_, h_) {
   fd.shape.SetAsBox(scaleToWorld(this.w/2), scaleToWorld(this.h/2));
   this.body = world.CreateBody(bd).CreateFixture(fd);
 
+  //bd.SetLinearVelocity(new box2d.b2Vec2(2,5));
+
   // Draw the boundary, if it were at an angle we'd have to do something fancier
   this.display = function() {
     fill(30,127,155);
     stroke(0);
     rectMode(CENTER);
     rect(this.x,this.y,this.w,this.h);
+
+    push();
+    fill(0);
+    text(bd.position.x, 100, 100);
+    text(bd.position.y, 100, 200);
+    pop();
   };
 
   this.move = function() {
     this.y = y_--;
+
   }
 
 }

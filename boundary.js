@@ -35,4 +35,8 @@ function Boundary(x_,y_, w_, h_) {
     rectMode(CENTER);
     rect(this.x,this.y,this.w,this.h);
   };
+
+  this.move = function() {
+    this.y = y_--;
+  }
 }

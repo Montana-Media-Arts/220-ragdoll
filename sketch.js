@@ -40,6 +40,10 @@ function draw() {
      for (var i = 0; i < boundaries.length; i++) {
           boundaries[i].display();
      }
+
+     for (var i = 0; i < boundaries.length; i++) {
+       boundaries[i].move();
+     }
 }
 
 function mouseReleased() {
