@@ -43,7 +43,7 @@ function draw() {
      box.display();
 
      spring.update(mouseX,mouseY);
-     // spring.display();
+     spring.display();
 
      //limb.display();
 
