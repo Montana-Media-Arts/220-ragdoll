@@ -14,6 +14,7 @@ function Boundary(x_,y_, w_, h_) {
   this.w = w_;
   this.h = h_;
 
+  //this is irrelevant bc i can't figure out how to use it
   this.vector = new box2d.b2Vec2(random(-5, 5), random(2, 5))
 
   var fd = new box2d.b2FixtureDef();
@@ -30,7 +31,6 @@ function Boundary(x_,y_, w_, h_) {
   fd.shape.SetAsBox(scaleToWorld(this.w/2), scaleToWorld(this.h/2));
   this.body = world.CreateBody(bd).CreateFixture(fd);
 
-  //bd.SetLinearVelocity(new box2d.b2Vec2(2,5));
 
   // Draw the boundary, if it were at an angle we'd have to do something fancier
   this.display = function() {
@@ -49,6 +49,16 @@ function Boundary(x_,y_, w_, h_) {
   this.move = function() {
     this.y = y_--;
 
+  }
+
+  this.boxMove = function() {
+    bd.position.y = scaleToWorld(--this.y);
+  }
+
+  this.reset = function() {
+    if (this.y < 0) {
+      this.y = height-5;
+    }
   }
 
 }

@@ -39,4 +39,10 @@ function Boundary(x_,y_, w_, h_) {
   this.move = function() {
     this.y = y_--;
   }
+
+  this.reset = function() {
+    if (this.y < 0) {
+      this.y = height-5;
+    }
+  }
 }
