@@ -40,7 +40,7 @@ function Boundary(x_,y_, w_, h_) {
     rect(this.x,this.y,this.w,this.h);
 
     push();
-    fill(0);
+    fill(255);
     text(bd.position.x, 100, 100);
     text(bd.position.y, 100, 200);
     pop();
@@ -48,7 +48,6 @@ function Boundary(x_,y_, w_, h_) {
 
   this.move = function() {
     this.y = y_--;
-
   }
 
   this.boxMove = function() {

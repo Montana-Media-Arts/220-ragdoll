@@ -45,6 +45,8 @@ function draw() {
   // Display all the boundaries
   for (var i = 0; i < boundaries.length; i++) {
     boundaries[i].display();
+    boundaries[i].boxMove();
+    boundaries[i].reset();
   }
 
   // Display all the boxes
@@ -54,17 +56,4 @@ function draw() {
       boxes.splice(i,1);
     }
   }
-
-  for (var i = 0; i < boundaries.length; i++) {
-    boundaries[i].move();
-  }
-
-  for (var i = 0; i < boundaries.length; i++) {
-    boundaries[i].boxMove();
-  }
-
-  for (var i = 0; i < boundaries.length; i++) {
-    boundaries[i].reset();
-  }
-
 }
