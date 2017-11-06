@@ -29,12 +29,12 @@ function Box(x, y, w, h) {
   this.body.SetLinearVelocity(new box2d.b2Vec2(random(-5, 5), random(2, 5)));
     this.body.SetAngularVelocity(random(-5,5));
 
-  this.contains = function(x,y) {
-    var worldPoint = scaleToWorld(x, y);
-    var f = this.body.GetFixtureList();
-    var inside = f.TestPoint(worldPoint);
-    return inside;
-  };
+  // this.contains = function(x,y) {
+  //   var worldPoint = scaleToWorld(x, y);
+  //   var f = this.body.GetFixtureList();
+  //   var inside = f.TestPoint(worldPoint);
+  //   return inside;
+  // };
 
 
   this.killBody = function() {

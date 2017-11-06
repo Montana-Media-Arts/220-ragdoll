@@ -27,7 +27,14 @@ function Limb(x, y) {
   //to accomplish, this is a good discovery nonetheless. -sr
   rjd.enableLimit = true;
 
-
+  this.contains = function(x,y) {
+    var worldPoint = scaleToWorld(x, y);
+    var f = this.box2.body.GetFixtureList();
+    var c = this.box1.body.GetFixtureList();
+    console.log(c);
+    var inside = f.TestPoint(worldPoint);
+    return inside;
+  };
 
   joint = world.CreateJoint(rjd);
 
