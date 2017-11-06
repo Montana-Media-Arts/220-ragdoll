@@ -21,7 +21,7 @@ function Boundary(x_,y_, w_, h_) {
 
   var bd = new box2d.b2BodyDef();
 
-  bd.type = box2d.b2BodyType.b2_staticBody;
+  bd.type = box2d.b2BodyType.b2_kinematicBody;
   bd.position.x = scaleToWorld(this.x);
   bd.position.y = scaleToWorld(this.y);
   fd.shape = new box2d.b2PolygonShape();

@@ -4,18 +4,23 @@ var world;
 var box;
 
 var boundaries = [];
-
+var bg;
 var spring;
+
+function preload() {
+  bg = loadImage("backgrounds/skyone.jpg");
+}
 
 function setup() {
 
      createCanvas(windowWidth, windowHeight);
 
+
      // Initialize box2d physics and create the world
      world = createWorld();
      //world.SetGravity(new box2d.b2Vec2(0, 10)); < this didn't even do anything
 
-     limb = new Limb (width / 2, height / 2);
+     //limb = new Limb (width / 2, height / 2);
 
      spring = new Spring();
 
@@ -29,6 +34,7 @@ function setup() {
 function draw() {
 
     background(0);
+    image(bg, 0, 0, width, height);
 
   // We must always step through time!
      var timeStep = 1.0 / 30;
@@ -37,19 +43,13 @@ function draw() {
      box.display();
 
      spring.update(mouseX,mouseY);
-     // spring.display();
+     spring.display();
 
-     limb.display();
-
-     for (var i = 0; i < boundaries.length; i++) {
-          boundaries[i].display();
-     }
+     //limb.display();
 
      for (var i = 0; i < boundaries.length; i++) {
+       boundaries[i].display();
        boundaries[i].move();
-     }
-
-     for (var i = 0; i < boundaries.length; i++) {
        boundaries[i].reset();
      }
 }
@@ -59,7 +59,7 @@ function mouseReleased() {
 }
 
 function mousePressed() {
-     if (limb.contains(mouseX, mouseY)) {
-          spring.bind(mouseX, mouseY, limb);
+     if (box.contains(mouseX, mouseY)) {
+          spring.bind(mouseX, mouseY, box);
      }
 }
