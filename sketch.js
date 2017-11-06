@@ -7,6 +7,8 @@ var boundaries = [];
 
 var spring;
 
+let worldPos = { x: 0, y:0 };
+
 function setup() {
 
      createCanvas(windowWidth, windowHeight);
@@ -34,18 +36,28 @@ function draw() {
      var timeStep = 1.0 / 30;
      world.Step(timeStep, 10, 10);
 
+
      box.display();
+    //  translate(box.pos.x, box.pos.y);
 
      spring.update(mouseX,mouseY);
      // spring.display();
 
      limb.display();
 
+
+
+     // boundary sandbox
+
+
+
      for (var i = 0; i < boundaries.length; i++) {
        boundaries[i].display();
        boundaries[i].move();
        boundaries[i].reset();
      }
+
+
 }
 
 function mouseReleased() {

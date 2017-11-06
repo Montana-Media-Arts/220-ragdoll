@@ -54,6 +54,7 @@ function Box(x, y, w, h) {
   this.display = function() {
     // Get the body's position
     var pos = scaleToPixels(this.body.GetPosition());
+    this.pos = pos;
     // Get its angle of rotation
     var a = this.body.GetAngleRadians();
 
