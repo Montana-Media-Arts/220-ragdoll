@@ -7,9 +7,9 @@ var boundaries = [];
 var bg;
 var spring;
 
-function preload() {
-  bg = loadImage("backgrounds/skyone.jpg");
-}
+// function preload() {
+//   bg = loadImage("backgrounds/skyone.jpg");
+// }
 
 function setup() {
 
@@ -34,7 +34,7 @@ function setup() {
 function draw() {
 
     background(0);
-    image(bg, 0, 0, width, height);
+    // image(bg, 0, 0, width, height);
 
   // We must always step through time!
      var timeStep = 1.0 / 30;

@@ -10,7 +10,15 @@
     //define an arm and leg parameter and limit rotation accordingly
 
 //if you leave a comment leave your initials too -sr
+function preload(){
+head= loadImage("images/coralinehead.png");
+rleg = loadImage("images/coralineRleg.png")
+body= loadImage("images/coralinebody.png");
+lleg = loadImage("images/coralineLleg.png");
+rarm= loadImage("images/coralineRarm.png");
+larm = loadImage("images/coralineLarm.png");
 
+}
 
 function Limb(x, y) {
   this.box1 = new Box(x, y, 20, 60);
