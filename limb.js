@@ -9,14 +9,17 @@
     //add feet/hands
     //define an arm and leg parameter and limit rotation accordingly
 
+
+var head, rleg, body, lleg, rarm, larm;
+
 //if you leave a comment leave your initials too -sr
 function preload(){
-head= loadImage("images/coralinehead.png");
-rleg = loadImage("images/coralineRleg.png")
-body= loadImage("images/coralinebody.png");
-lleg = loadImage("images/coralineLleg.png");
-rarm= loadImage("images/coralineRarm.png");
-larm = loadImage("images/coralineLarm.png");
+head= loadImage("bodyImg/coralinehead.png");
+rleg = loadImage("bodyImg/coralineRleg.png")
+body= loadImage("bodyImg/coralinebody.png");
+lleg = loadImage("bodyImg/coralineLleg.png");
+rarm= loadImage("bodyImg/coralineRarm.png");
+larm = loadImage("bodyImg/coralineLarm.png");
 
 }
 
