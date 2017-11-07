@@ -39,7 +39,7 @@ function Limb(x, y) {
     var worldPoint = scaleToWorld(x, y);
     var f = this.box2.body.GetFixtureList();
     var c = this.box1.body.GetFixtureList();
-    console.log(c);
+    //console.log(c);
     var inside = f.TestPoint(worldPoint);
     return inside;
   };
