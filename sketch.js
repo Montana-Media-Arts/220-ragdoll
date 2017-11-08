@@ -33,14 +33,19 @@ function setup() {
 
     //limb = new Limb (width / 2, height / 2);
 
-     spring = new Spring();
-     springBod = new Spring();
-     body = new Body(width/2, height/2);
-     box = new Box(width / 2, height / 2, 30, 30);
+    spring = new Spring();
 
-    boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10));
-    boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10));
-    boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), width / 2 - 100, 10));
+    spring = new Spring();
+    springBod = new Spring();
+    body = new Body(width / 2, height / 2);
+    box = new Box(width / 2, height / 2, 30, 30);
+
+
+    box = new Box(width / 2, height / 2, 30, 30);
+
+    boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10, 50));
+    boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10, 50));
+    boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), width / 2 - 100, 10, 50));
 }
 
 
@@ -53,24 +58,24 @@ function draw() {
     var timeStep = 1.0 / 30;
     world.Step(timeStep, 10, 10);
 
+
     /* CREATE CAMERA SANBOX */
     push();
-    worldPos = findCenter(box);
+    worldPos = findCenter(body);
     translate(-worldPos.x, -worldPos.y);
     worldPos.mouseX = mouseX + worldPos.x;
     worldPos.mouseY = mouseY + worldPos.y;
 
-    noStroke();
-    box.display();
 
+    box.display();
     body.display();
 
-    spring.update(worldPos.mouseX,worldPos.mouseY);
-    springBod.update(worldPos.mouseX,worldPos.mouseY);
+
+    spring.update(worldPos.mouseX, worldPos.mouseY);
+    springBod.update(worldPos.mouseX, worldPos.mouseY);
 
     spring.display();
     springBod.display();
-
 
     //limb.display();
 
@@ -91,15 +96,27 @@ function draw() {
     pop();
 
 
+
+
+
 }
 
 function mouseReleased() {
 
-     spring.destroy();
-     springBod.destroy();
+    spring.destroy();
 }
 
 function mousePressed() {
+    if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
+        spring.bind(worldPos.mouseX, worldPos.mouseY, box);
+    }
+
+    spring.destroy();
+    springBod.destroy();
+}
+
+function mousePressed() {
+<<<<<<< HEAD
 // Box mouse control
      if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
           spring.bind(worldPos.mouseX, worldPos.mouseY, box);
@@ -116,13 +133,32 @@ function mousePressed() {
      if (body.head.contains(worldPos.mouseX, worldPos.mouseY)) {
           springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
      }
+=======
+    // Box mouse control
+    if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
+        spring.bind(worldPos.mouseX, worldPos.mouseY, box);
+    }
+    if (body.torso.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torso);
+    }
+    if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.leftArm);
+    }
+    if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
+    }
+
+>>>>>>> origin/master
 }
 
 
-function findCenter( centerObj ){
+function findCenter(centerObj) {
 
-    let x = centerObj.pos.x - ( width/2);
-    let y = centerObj.pos.y - ( height/2);
+    let x = centerObj.anchor.x - (width / 2);
+    let y = centerObj.anchor.y - (height / 2);
 
-    return { x: x, y: y };
+    return {
+        x: x,
+        y: y
+    };
 }

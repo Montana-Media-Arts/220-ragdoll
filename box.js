@@ -18,8 +18,13 @@ function Box(x, y, w, h) {
 
     // Some physics
     fd1.density = 10.0;
+<<<<<<< HEAD
     fd1.friction = 1;
     fd1.restitution = 0.1;
+=======
+    fd1.friction = 0.6;
+    fd1.restitution = 0.6;
+>>>>>>> origin/master
 
     // Create the body
     this.body = world.CreateBody(bd);
@@ -40,7 +45,12 @@ function Box(x, y, w, h) {
         return inside;
     };
 
+    // don't need this anymore
+    // this.killBody = function() {
+    //     world.DestroyBody(this.body);
+    // }
 
+<<<<<<< HEAD
     this.killBody = function() {
         world.DestroyBody(this.body);
     };
@@ -53,6 +63,16 @@ function Box(x, y, w, h) {
         }
         return false;
     };
+=======
+    // this.done = function() {
+    //     var pos = scaleToPixels(this.body.GetPosition());
+    //     if (pos.y > height + this.w * this.h) {
+    //         this.killBody();
+    //         return true;
+    //     }
+    //     return false;
+    // };
+>>>>>>> origin/master
 
     // Drawing the box
     this.display = function() {

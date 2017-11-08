@@ -19,8 +19,11 @@ function Body(x, y) {
      rjd.Initialize(this.torso.body, this.rightArm.body, this.torso.body.GetWorldCenter());
      joint = world.CreateJoint(rjd);
 
-     rjd.Initialize(this.torso.body, this.head.body, this.torso.body.GetWorldCenter());
-     joint = world.CreateJoint(rjd);
+     this.anchor = scaleToPixels(this.torso.body.GetWorldCenter());
+
+
+
+
 
      rjd.Initialize(this.torso.body, this.leftLeg.body, this.torso.body.GetWorldCenter());
      joint = world.CreateJoint(rjd);
@@ -36,9 +39,9 @@ function Body(x, y) {
           this.leftLeg.display();
           this.rightLeg.display();
 
-          var anchor = scaleToPixels(this.torso.body.GetWorldCenter());
+          this.anchor = scaleToPixels(this.torso.body.GetWorldCenter());
           fill(0);
           noStroke();
-          ellipse(anchor.x, anchor.y, 8, 8);
+          ellipse(this.anchor.x, this.anchor.y, 8, 8);
      };
 }
