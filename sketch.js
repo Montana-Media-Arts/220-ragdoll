@@ -7,7 +7,6 @@ var boundaries = [];
 //var bg;
 var spring;
 
-
 let worldPos = {
     x: 0,
     y: 0,
@@ -34,34 +33,20 @@ function setup() {
 
     //limb = new Limb (width / 2, height / 2);
 
-<<<<<<< HEAD
-     spring = new Spring();
-     springBod = new Spring();
-     body = new Body(width/2, height/2);
-     box = new Box(width / 2, height / 2, 30, 30);
-=======
-    spring = new Spring();
 
-    spring = new Spring();
-    springBod = new Spring();
-    body = new Body(width / 2, height / 2);
+
     box = new Box(width / 2, height / 2, 30, 30);
->>>>>>> 17376e65874e78bc1f1203d2a39c0abdfe8f7450
 
-    boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 100));
-    boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 100));
-    boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), width / 2 - 100, 100));
+    boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10, 50));
+    boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10, 50));
+    boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), width / 2 - 100, 10, 50));
 }
 
 
 function draw() {
 
 
-    background('pink');
-<<<<<<< HEAD
-    background(0);
-=======
->>>>>>> 17376e65874e78bc1f1203d2a39c0abdfe8f7450
+    background(2, 87, 142);
 
     // We must always step through time!
     var timeStep = 1.0 / 30;
@@ -86,6 +71,7 @@ function draw() {
     spring.display();
     springBod.display();
 
+<<<<<<< HEAD
 
     //limb.display();
 
@@ -93,6 +79,9 @@ function draw() {
 
     // boundary sandbox
 
+=======
+    // limb.display();
+>>>>>>> 244881696ad8f529fe560eb60a9a8029bc5fff22
 
 
     for (var i = 0; i < boundaries.length; i++) {
@@ -110,6 +99,7 @@ function draw() {
 
 function mouseReleased() {
 
+<<<<<<< HEAD
      spring.destroy();
      springBod.destroy();
 }
@@ -128,6 +118,28 @@ function mousePressed() {
      if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
           springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
      }
+=======
+    spring.destroy();
+    springBod.destroy();
+}
+
+
+function mousePressed() {
+    // Box mouse control
+    if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
+        spring.bind(worldPos.mouseX, worldPos.mouseY, box);
+    }
+    if (body.torso.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torso);
+    }
+    if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.leftArm);
+    }
+    if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
+    }
+
+>>>>>>> 244881696ad8f529fe560eb60a9a8029bc5fff22
 }
 
 
