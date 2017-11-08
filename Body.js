@@ -13,14 +13,20 @@ function Body(x, y) {
      rjd.Initialize(this.torso.body, this.rightArm.body, this.torso.body.GetWorldCenter());
      joint = world.CreateJoint(rjd);
 
+     this.anchor = scaleToPixels(this.torso.body.GetWorldCenter());
+
+
+
+     
+
      this.display = function() {
           this.torso.display();
           this.leftArm.display();
           this.rightArm.display();
 
-          var anchor = scaleToPixels(this.torso.body.GetWorldCenter());
+          this.anchor = scaleToPixels(this.torso.body.GetWorldCenter());
           fill(0);
           noStroke();
-          ellipse(anchor.x, anchor.y, 8, 8);
+          ellipse(this.anchor.x, this.anchor.y, 8, 8);
      };
 }

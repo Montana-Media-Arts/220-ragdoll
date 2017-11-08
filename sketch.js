@@ -56,7 +56,7 @@ function draw() {
 
     /* CREATE CAMERA SANBOX */
     push();
-    worldPos = findCenter(box);
+    worldPos = findCenter(body);
     translate(-worldPos.x, -worldPos.y);
     worldPos.mouseX = mouseX + worldPos.x;
     worldPos.mouseY = mouseY + worldPos.y;
@@ -120,8 +120,8 @@ function mousePressed() {
 
 function findCenter( centerObj ){
 
-    let x = centerObj.pos.x - ( width/2);
-    let y = centerObj.pos.y - ( height/2);
+    let x = centerObj.anchor.x - ( width/2);
+    let y = centerObj.anchor.y - ( height/2);
 
     return { x: x, y: y };
 }
