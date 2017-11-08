@@ -100,16 +100,17 @@ function draw() {
 function mouseReleased() {
 
     spring.destroy();
-}
-
-function mousePressed() {
-    if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
-        spring.bind(worldPos.mouseX, worldPos.mouseY, box);
-    }
-
-    spring.destroy();
     springBod.destroy();
 }
+//
+// function mousePressed() {
+//     if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
+//         spring.bind(worldPos.mouseX, worldPos.mouseY, box);
+//     }
+//
+//     spring.destroy();
+//     springBod.destroy();
+// }
 
 function mousePressed() {
     // Box mouse control
