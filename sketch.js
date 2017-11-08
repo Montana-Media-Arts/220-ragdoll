@@ -33,12 +33,6 @@ function setup() {
 
     //limb = new Limb (width / 2, height / 2);
 
-    spring = new Spring();
-
-    spring = new Spring();
-    springBod = new Spring();
-    body = new Body(width / 2, height / 2);
-    box = new Box(width / 2, height / 2, 30, 30);
 
 
     box = new Box(width / 2, height / 2, 30, 30);
@@ -52,7 +46,7 @@ function setup() {
 function draw() {
 
 
-    background('pink');
+    background(2, 87, 142);
 
     // We must always step through time!
     var timeStep = 1.0 / 30;
