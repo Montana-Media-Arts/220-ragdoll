@@ -90,14 +90,8 @@ function draw() {
         boundaries[i].move();
         boundaries[i].reset();
     }
-
-
     /* END CAMERA SANBOX */
     pop();
-
-
-
-
 
 }
 

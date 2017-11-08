@@ -46,5 +46,5 @@ function Boundary(x_,y_, w_, h_, radius) {
     if (this.y < 0) {
       this.y = height-5;
     }
-  }
-};
+  };
+}
