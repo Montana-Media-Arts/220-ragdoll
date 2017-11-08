@@ -12,7 +12,7 @@
 
 // var head, rleg, body, lleg, rarm, larm;
 //
-// //if you leave a comment leave your initials too -sr
+// // //if you leave a comment leave your initials too -sr
 // function preload(){
 //   head= loadImage("bodyImg/coralinehead.png");
 //   rleg = loadImage("bodyImg/coralineRleg.png")
