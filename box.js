@@ -80,14 +80,15 @@ function Box(x, y, w, h) {
         var a = this.body.GetAngleRadians();
 
         // Draw it!
+        this.img = c;
         rectMode(CENTER);
         push();
         translate(pos.x, pos.y);
         rotate(a);
-        fill(c-10, c, c+10);
-        stroke(200);
-        strokeWeight(2);
-        rect(0, 0, this.w, this.h);
+        fill(0);
+        noStroke();
+        image(this.img, 0, 0, this.w, this.h)
+        //rect(0, 0, this.w, this.h);
         pop();
     };
 

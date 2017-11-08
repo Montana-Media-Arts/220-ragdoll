@@ -41,14 +41,14 @@ function Body(x, y) {
      rjd.Initialize(this.pelvis.body, this.leftLeg.body, this.pelvis.body.GetWorldCenter());
      joint = world.CreateJoint(rjd); //attach the left leg to pelvis
 
-     this.display = function() {
-          this.leftArm.display(200); //white
-          this.torsoHi.display(20); //black
-          this.torsoLo.display(60); //dark dark grey
-          this.rightArm.display(50); //dark grey
-          this.head.display(20); //black
-          this.leftLeg.display(150); //light grey
-          this.rightLeg.display(20); //black
+     this.display = function(head, larm, rarm, torso, lleg, rleg) {
+          this.head.display(head); //black
+          this.leftArm.display(larm); //white
+          this.rightArm.display(rarm); //dark grey
+          this.torsoHi.display(torso); //black
+          //this.torsoLo.display(60); //dark dark grey
+          this.leftLeg.display(lleg); //light grey
+          this.rightLeg.display(rleg); //black
           //this.pelvis.display(30); //slightly less black
           //this.shoulders.display(300) //white
 
