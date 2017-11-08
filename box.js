@@ -89,6 +89,7 @@ function Box(x, y, w, h) {
         fill(0);
         noStroke();
         //rect(0, 0, this.w, this.h);
+<<<<<<< HEAD
         rotate(PI);
         image(this.img, -14, -20, this.w*2, this.h*2);
 =======
@@ -98,6 +99,9 @@ function Box(x, y, w, h) {
         strokeWeight(2);
         rect(0, 0, this.w, this.h);
 >>>>>>> origin/master
+=======
+        image(this.img, 0, 0, this.w, this.h);
+>>>>>>> parent of 8cc6554... minor changese
         pop();
     };
 
