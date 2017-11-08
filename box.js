@@ -23,6 +23,7 @@ function Box(x, y, w, h) {
     fd1.restitution = 0.6;
 
 
+
     // Create the body
     this.body = world.CreateBody(bd);
     // Attach the fixture
@@ -92,6 +93,7 @@ function Box(x, y, w, h) {
         push();
         translate(pos.x, pos.y);
         rotate(a);
+
         // fill(c-10, c, c+10);
         // fill(175);
         // stroke(200);
@@ -101,6 +103,7 @@ function Box(x, y, w, h) {
         rotate(PI);
         image(img, -this.w/2, -this.h/2, this.w, this.h);
         pop();
+
         pop();
     };
 
