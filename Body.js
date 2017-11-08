@@ -4,8 +4,8 @@ function Body(x, y) {
      this.leftArm = new Box(x, y, 10, 30, false);
      this.rightArm = new Box(x, y, 10, 30, false);
      this.head = new Box(x + 30, y, 15, 15, false);
-     this.leftLeg = new Box(x-5, y, 10, 60, 60, false);
-     this.rightLeg = new Box(x+5, y, 10, 60, 60, false);
+     this.leftLeg = new Box(x-5, y-60, 10, 60, 60, false);
+     this.rightLeg = new Box(x+5, y-60, 10, 60, 60, false);
 
 
      // Define joint as between two bodies
