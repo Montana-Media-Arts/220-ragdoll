@@ -72,7 +72,7 @@ function draw() {
     noStroke();
     //box.display();
 
-    body.display(head, larm, rarm, torso, lleg, rleg);
+    body.display(head, larm, rarm, body, lleg, rleg);
 
     spring.update(worldPos.mouseX,worldPos.mouseY);
     springBod.update(worldPos.mouseX,worldPos.mouseY);
