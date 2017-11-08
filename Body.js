@@ -21,8 +21,7 @@ function Body(x, y) {
      this.rightLeg = new Box(x+10, y-65, 10, 50);
      this.pelvis = new Box(x, y-35, 10, 20);
 
-     // Define joint as between two bodies
-     var rjd = new box2d.b2RevoluteJointDef();
+     this.anchor = scaleToPixels(this.torso.body.GetWorldCenter());
 
      rjd.Initialize(this.torsoHi.body, this.rightArm.body, this.torsoHi.body.GetWorldCenter());
      joint = world.CreateJoint(rjd); //attach the right arm to upper body
@@ -39,12 +38,30 @@ function Body(x, y) {
      // joint = world.CreateJoint(rjd); //attach the right arm to shoulder
 
      // this.anchor = scaleToPixels(this.torsoHi.body.GetWorldCenter());
+     // Define joint as between two bodies
+     var headJoint = new box2d.b2RevoluteJointDef();
 
-     rjd.Initialize(this.torsoLo.body, this.torsoHi.body, this.torsoLo.body.GetWorldCenter());
-     joint = world.CreateJoint(rjd);  //attach the two torsos
+     headJoint.Initialize(this.torso.body, this.leftArm.body, this.torso.body.GetWorldCenter());
+     joint = world.CreateJoint(headJoint);
 
-     rjd.Initialize(this.head.body, this.torsoHi.body, this.head.body.GetWorldCenter());
-     joint = world.CreateJoint(rjd); //attach the head to torso
+     headJoint.Initialize(this.torso.body, this.rightArm.body, this.torso.body.GetWorldCenter());
+     joint = world.CreateJoint(headJoint);
+
+     headJoint.Initialize(this.torso.body, this.leftLeg.body, this.torso.body.GetWorldCenter());
+     joint = world.CreateJoint(headJoint);
+
+     headJoint.Initialize(this.torso.body, this.rightLeg.body, this.torso.body.GetWorldCenter());
+     joint = world.CreateJoint(headJoint);
+     headJoint.Initialize(this.torso.body, this.head.body, this.torso.body.GetWorldCenter());
+     joint = world.CreateJoint(headJoint);
+
+     this.display = function() {
+          this.torso.display(20);
+          this.leftArm.display(50);
+          this.rightArm.display(20);
+          this.head.display(20);
+          this.leftLeg.display(20);
+          this.rightLeg.display(20);
 
      // rjd.Initialize(this.torsoLo.body, this.pelvis.body, this.pelvis.body.GetWorldCenter());
      // joint = world.CreateJoint(rjd); //attach the pelvis to lower body
@@ -67,6 +84,13 @@ function Body(x, y) {
           this.rightArm.display(rarm); //dark grey
           this.torsoHi.display(uppertorso); //black
           this.torsoLo.display(lowtorso); //dark dark grey
+
+     this.display = function(head, larm, rarm, torsoHi, torsoLo, lleg, rleg) {
+          this.head.display(head); //black
+          this.leftArm.display(larm); //white
+          this.rightArm.display(rarm); //dark grey
+          this.torsoHi.display(torsoHi); //black
+          this.torsoLo.display(torsoLo); //dark dark grey
           this.leftLeg.display(lleg); //light grey
           this.rightLeg.display(rleg); //black
           //this.pelvis.display(30); //slightly less black
