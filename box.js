@@ -88,7 +88,8 @@ function Box(x, y, w, h) {
         fill(0);
         noStroke();
         //rect(0, 0, this.w, this.h);
-        image(this.img, 0, 0, this.w, this.h);
+        rotate(PI);
+        image(this.img, -8, -20, this.w, this.h);
         pop();
     };
 
