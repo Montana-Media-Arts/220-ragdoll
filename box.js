@@ -33,7 +33,7 @@ function Box(x, y, w, h) {
     this.body.SetAngularVelocity(random(-5, 5));
 
     var pos = scaleToPixels(this.body.GetPosition());
-    this.pos = pos;
+    this.anchor = pos;
 
     this.contains = function(x, y) {
         var worldPoint = scaleToWorld(x, y);
@@ -72,22 +72,23 @@ function Box(x, y, w, h) {
 
 
     // Drawing the box
-    this.display = function() {
+    this.display = function(c) {
         // Get the body's position
         var pos = scaleToPixels(this.body.GetPosition());
-        this.pos = pos;
+        this.anchor = pos;
         // Get its angle of rotation
         var a = this.body.GetAngleRadians();
 
         // Draw it!
+        this.img = c;
         rectMode(CENTER);
         push();
         translate(pos.x, pos.y);
         rotate(a);
-        fill(127);
-        stroke(200);
-        strokeWeight(2);
-        rect(0, 0, this.w, this.h);
+        fill(0);
+        noStroke();
+        //rect(0, 0, this.w, this.h);
+        image(this.img, 0, this.h*2, this.w*2, this.h*-2);
         pop();
     };
 
