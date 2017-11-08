@@ -87,7 +87,7 @@ function Box(x, y, w, h) {
         rotate(a);
         fill(0);
         noStroke();
-        image(this.img, 0, 0, this.w, this.h)
+        image(this.img, 0, 0, this.w*2, this.h*2)
         //rect(0, 0, this.w, this.h);
         pop();
     };
