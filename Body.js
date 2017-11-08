@@ -10,9 +10,8 @@ function Body(x, y) {
      rjd.Initialize(this.torso.body, this.leftArm.body, this.torso.body.GetWorldCenter());
      joint = world.CreateJoint(rjd);
 
-     var rjd = new box2d.b2RevoluteJointDef();
+    //  var rjd = new box2d.b2RevoluteJointDef();
      rjd.Initialize(this.torso.body, this.rightArm.body, this.torso.body.GetWorldCenter());
-
      joint = world.CreateJoint(rjd);
 
      this.display = function() {
