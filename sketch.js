@@ -18,12 +18,12 @@ var body;
 //function preload() {
 //  bg = loadImage("backgrounds/skyone.jpg");
 //}
-var head, rleg, body, lleg, rarm, larm;
+var head, rleg, torso, lleg, rarm, larm;
 //
  function preload(){
   head= loadImage("bodyImg/coralinehead.png");
   rleg = loadImage("bodyImg/coralineRleg.png")
-  body= loadImage("bodyImg/coralinebody.png");
+  torso= loadImage("bodyImg/coralinebody.png");
   lleg = loadImage("bodyImg/coralineLleg.png");
   rarm= loadImage("bodyImg/coralineRarm.png");
   larm = loadImage("bodyImg/coralineLarm.png");
@@ -72,7 +72,7 @@ function draw() {
     noStroke();
     //box.display();
 
-    body.display(head, larm, rarm, body, lleg, rleg);
+    body.display(head, larm, rarm, torso, lleg, rleg);
 
     spring.update(worldPos.mouseX,worldPos.mouseY);
     springBod.update(worldPos.mouseX,worldPos.mouseY);
