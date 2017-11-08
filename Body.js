@@ -1,11 +1,11 @@
 function Body(x, y) {
 
      this.torso = new Box(x, y, 120, 10, false);
-     this.leftArm = new Box(x, y, 10, 30, false);
-     this.rightArm = new Box(x, y, 10, 30, false);
+     this.leftArm = new Box(x, y-15, 10, 30, false);
+     this.rightArm = new Box(x, y-15, 10, 30, false);
      this.head = new Box(x + 30, y, 15, 15, false);
-     this.leftLeg = new Box(x-5, y, 10, 60, 60, false);
-     this.rightLeg = new Box(x+5, y, 10, 60, 60, false);
+     this.leftLeg = new Box(x-5, y-30, 10, 60, 60, false);
+     this.rightLeg = new Box(x+5, y-30, 10, 60, 60, false);
 
 
      // Define joint as between two bodies
@@ -20,10 +20,6 @@ function Body(x, y) {
      joint = world.CreateJoint(rjd);
 
      this.anchor = scaleToPixels(this.torso.body.GetWorldCenter());
-
-
-
-
 
      rjd.Initialize(this.torso.body, this.leftLeg.body, this.torso.body.GetWorldCenter());
      joint = world.CreateJoint(rjd);

@@ -116,7 +116,7 @@ function mousePressed() {
 }
 
 function mousePressed() {
-<<<<<<< HEAD
+
 // Box mouse control
      if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
           spring.bind(worldPos.mouseX, worldPos.mouseY, box);
@@ -133,7 +133,7 @@ function mousePressed() {
      if (body.head.contains(worldPos.mouseX, worldPos.mouseY)) {
           springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
      }
-=======
+
     // Box mouse control
     if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
         spring.bind(worldPos.mouseX, worldPos.mouseY, box);
@@ -148,7 +148,6 @@ function mousePressed() {
         springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
     }
 
->>>>>>> origin/master
 }
 
 
