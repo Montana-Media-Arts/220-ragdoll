@@ -1,6 +1,7 @@
 // A rectangular box
 
 function Box(x, y, w, h) {
+
     this.w = w;
     this.h = h;
 
@@ -32,8 +33,6 @@ function Box(x, y, w, h) {
     var pos = scaleToPixels(this.body.GetPosition());
     this.pos = pos;
 
-
-
     this.contains = function(x, y) {
         var worldPoint = scaleToWorld(x, y);
         var f = this.body.GetFixtureList();
@@ -41,19 +40,19 @@ function Box(x, y, w, h) {
         return inside;
     };
 
+    // don't need this anymore
+    // this.killBody = function() {
+    //     world.DestroyBody(this.body);
+    // }
 
-    this.killBody = function() {
-        world.DestroyBody(this.body);
-    }
-
-    this.done = function() {
-        var pos = scaleToPixels(this.body.GetPosition());
-        if (pos.y > height + this.w * this.h) {
-            this.killBody();
-            return true;
-        }
-        return false;
-    };
+    // this.done = function() {
+    //     var pos = scaleToPixels(this.body.GetPosition());
+    //     if (pos.y > height + this.w * this.h) {
+    //         this.killBody();
+    //         return true;
+    //     }
+    //     return false;
+    // };
 
     // Drawing the box
     this.display = function() {
@@ -74,4 +73,5 @@ function Box(x, y, w, h) {
         rect(0, 0, this.w, this.h);
         pop();
     };
+
 }
