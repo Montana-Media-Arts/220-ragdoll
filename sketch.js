@@ -54,7 +54,7 @@ function draw() {
 
     /* CREATE CAMERA SANBOX */
     push();
-    worldPos = findCenter(body);
+    worldPos = findCenter(box);
     translate(-worldPos.x, -worldPos.y);
     worldPos.mouseX = mouseX + worldPos.x;
     worldPos.mouseY = mouseY + worldPos.y;
