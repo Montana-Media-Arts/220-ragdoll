@@ -72,7 +72,7 @@ function Box(x, y, w, h) {
 
 
     // Drawing the box
-    this.display = function() {
+    this.display = function(c) {
         // Get the body's position
         var pos = scaleToPixels(this.body.GetPosition());
         this.anchor = pos;
@@ -84,7 +84,7 @@ function Box(x, y, w, h) {
         push();
         translate(pos.x, pos.y);
         rotate(a);
-        fill(127);
+        fill(c-10, c, c+10);
         stroke(200);
         strokeWeight(2);
         rect(0, 0, this.w, this.h);
