@@ -7,8 +7,6 @@ var boundaries = [];
 //var bg;
 var spring;
 
-
-
 function setup() {
 
      createCanvas(windowWidth, windowHeight);
