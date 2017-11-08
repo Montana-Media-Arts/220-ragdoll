@@ -52,7 +52,7 @@ function setup() {
 function draw() {
 
 
-    background('pink');
+    background(2, 87, 142);
 
     // We must always step through time!
     var timeStep = 1.0 / 30;
