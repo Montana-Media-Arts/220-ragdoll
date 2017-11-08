@@ -7,6 +7,7 @@ var boundaries = [];
 //var bg;
 var spring;
 
+<<<<<<< Updated upstream
 let worldPos = {
     x: 0,
     y: 0,
@@ -17,6 +18,9 @@ let worldPos = {
 //function preload() {
 //  bg = loadImage("backgrounds/skyone.jpg");
 //}
+=======
+var body;
+>>>>>>> Stashed changes
 
 function setup() {
 
@@ -27,9 +31,16 @@ function setup() {
     world = createWorld();
     //world.SetGravity(new box2d.b2Vec2(0, 10)); < this didn't even do anything
 
+<<<<<<< Updated upstream
     //limb = new Limb (width / 2, height / 2);
 
     spring = new Spring();
+=======
+     spring = new Spring();
+     springBod = new Spring();
+     body = new Body(width/2, height/2);
+     box = new Box(width / 2, height / 2, 30, 30);
+>>>>>>> Stashed changes
 
     box = new Box(width / 2, height / 2, 30, 30);
 
@@ -40,6 +51,7 @@ function setup() {
 
 
 function draw() {
+<<<<<<< Updated upstream
 
     background(0);
 
@@ -80,10 +92,28 @@ function draw() {
     /* END CAMERA SANBOX */
     pop();
 
+=======
+     background('pink');
+
+     // We must always step through time!
+     var timeStep = 1.0 / 30;
+     world.Step(timeStep, 10, 10);
+     noStroke();
+     box.display();
+
+     body.display();
+
+     spring.update(mouseX,mouseY);
+     springBod.update(mouseX,mouseY);
+
+     spring.display();
+     springBod.display();
+>>>>>>> Stashed changes
 
 }
 
 function mouseReleased() {
+<<<<<<< Updated upstream
     spring.destroy();
 }
 
@@ -91,6 +121,27 @@ function mousePressed() {
     if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
         spring.bind(worldPos.mouseX, worldPos.mouseY, box);
     }
+=======
+     spring.destroy();
+     springBod.destroy();
+}
+
+function mousePressed() {
+// Box mouse control
+     if (box.contains(mouseX, mouseY)) {
+          spring.bind(mouseX, mouseY, box);
+     }
+
+     if (body.torso.contains(mouseX, mouseY)) {
+          springBod.bind(mouseX, mouseY, body.torso);
+     }
+     if (body.leftArm.contains(mouseX, mouseY)) {
+          springBod.bind(mouseX, mouseY, body.leftArm);
+     }
+     if (body.leftArm.contains(mouseX, mouseY)) {
+          springBod.bind(mouseX, mouseY, body.rightArm);
+     }
+>>>>>>> Stashed changes
 }
 
 
