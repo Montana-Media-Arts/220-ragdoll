@@ -18,10 +18,10 @@ function Box(x, y, w, h) {
 
     // Some physics
     fd1.density = 10.0;
-    fd1.friction = 1;
-    fd1.restitution = 0.1;
+
     fd1.friction = 0.6;
     fd1.restitution = 0.6;
+
 
     // Create the body
     this.body = world.CreateBody(bd);

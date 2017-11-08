@@ -3,7 +3,7 @@ function Body(x, y) {
      this.torso = new Box(x, y, 120, 10, false);
      this.leftArm = new Box(x, y-15, 10, 30, false);
      this.rightArm = new Box(x, y-15, 10, 30, false);
-     this.head = new Box(x + 30, y, 15, 15, false);
+     this.head = new Box(x + 30, y + 30, 15, 15, false);
      this.leftLeg = new Box(x-5, y-30, 10, 60, 60, false);
      this.rightLeg = new Box(x+5, y-30, 10, 60, 60, false);
 
@@ -13,8 +13,8 @@ function Body(x, y) {
 
      rjd.Initialize(this.torso.body, this.leftArm.body, this.torso.body.GetWorldCenter());
      joint = world.CreateJoint(rjd);
-     rjd.lowerAngle = 3.9;
-     rjd.upperAngle = 5.49;
+     joint.lowerAngle = 3.9;
+     joint.upperAngle = 5.49;
 
      rjd.Initialize(this.torso.body, this.rightArm.body, this.torso.body.GetWorldCenter());
      joint = world.CreateJoint(rjd);

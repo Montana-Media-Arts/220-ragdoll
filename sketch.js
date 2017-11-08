@@ -29,18 +29,11 @@ function setup() {
     // Initialize box2d physics and create the world
     world = createWorld();
     //world.SetGravity(new box2d.b2Vec2(0, 10)); < this didn't even do anything
-
+     spring = new Spring(mouseX, mouseY);
+     springBod = new Spring(mouseX, mouseY);
 
     //limb = new Limb (width / 2, height / 2);
-
-    spring = new Spring();
-
-    spring = new Spring();
-    springBod = new Spring();
-    body = new Body(width / 2, height / 2);
-    box = new Box(width / 2, height / 2, 30, 30);
-
-
+     body = new Body(height/2, width/2);
     box = new Box(width / 2, height / 2, 30, 30);
 
     boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10, 50));
@@ -52,7 +45,7 @@ function setup() {
 function draw() {
 
 
-    background('pink');
+    background(2, 87, 142);
 
     // We must always step through time!
     var timeStep = 1.0 / 30;
@@ -77,12 +70,7 @@ function draw() {
     spring.display();
     springBod.display();
 
-    //limb.display();
-
-
-
-    // boundary sandbox
-
+    // limb.display();
 
 
     for (var i = 0; i < boundaries.length; i++) {
@@ -98,16 +86,9 @@ function draw() {
 function mouseReleased() {
 
     spring.destroy();
-}
-
-function mousePressed() {
-    if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
-        spring.bind(worldPos.mouseX, worldPos.mouseY, box);
-    }
-
-    spring.destroy();
     springBod.destroy();
 }
+
 
 function mousePressed() {
 
@@ -127,20 +108,6 @@ function mousePressed() {
      if (body.head.contains(worldPos.mouseX, worldPos.mouseY)) {
           springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
      }
-
-    // Box mouse control
-    if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
-        spring.bind(worldPos.mouseX, worldPos.mouseY, box);
-    }
-    if (body.torso.contains(worldPos.mouseX, worldPos.mouseY)) {
-        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torso);
-    }
-    if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
-        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.leftArm);
-    }
-    if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
-        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
-    }
 
 }
 
