@@ -23,7 +23,8 @@ var head, rleg, torso, lleg, rarm, larm;
  function preload(){
   head= loadImage("bodyImg/coralinehead.png");
   rleg = loadImage("bodyImg/coralineRleg.png")
-  torso= loadImage("bodyImg/coralinebody.png");
+  torsoHi= loadImage("bodyImg/coralineUpperTorso.png");
+  torsoLo = loadImage("bodyImg/coralineLowerTorso.png")
   lleg = loadImage("bodyImg/coralineLleg.png");
   rarm= loadImage("bodyImg/coralineRarm.png");
   larm = loadImage("bodyImg/coralineLarm.png");
@@ -72,7 +73,7 @@ function draw() {
     noStroke();
     //box.display();
 
-    body.display(head, larm, rarm, torso, lleg, rleg);
+    body.display(head, larm, rarm, torsoHi, torsoLo, lleg, rleg);
 
     spring.update(worldPos.mouseX,worldPos.mouseY);
     springBod.update(worldPos.mouseX,worldPos.mouseY);
