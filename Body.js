@@ -1,12 +1,11 @@
 function Body(x, y) {
 
-     this.torso = new Box(x, y, 120, 10, false);
-     this.leftArm = new Box(x, y, 10, 30, false);
-     this.rightArm = new Box(x, y, 10, 30, false);
-     this.head = new Box(x + 30, y, 15, 15, false);
-     this.leftLeg = new Box(x-5, y-60, 10, 60, 60, false);
-     this.rightLeg = new Box(x+5, y-60, 10, 60, 60, false);
-
+     this.torso = new Box(x, y+30, 80, 10);
+     this.leftArm = new Box(x, y, 10, 30);
+     this.rightArm = new Box(x, y, 10, 30);
+     this.head = new Box(x + 30, y, 15, 15);
+     this.leftLeg = new Box(x-5, y-30, 10, 60, 60);
+     this.rightLeg = new Box(x+5, y-30, 10, 60, 60);
 
      // Define joint as between two bodies
      var rjd = new box2d.b2RevoluteJointDef();
@@ -28,12 +27,12 @@ function Body(x, y) {
      joint = world.CreateJoint(rjd);
 
      this.display = function() {
-          this.torso.display();
-          this.leftArm.display();
-          this.rightArm.display();
-          this.head.display();
-          this.leftLeg.display();
-          this.rightLeg.display();
+          this.leftArm.display(50);
+          this.torso.display(20);
+          this.rightArm.display(20);
+          this.head.display(20);
+          this.leftLeg.display(20);
+          this.rightLeg.display(20);
 
           this.anchor = scaleToPixels(this.torso.body.GetWorldCenter());
           fill(0);
