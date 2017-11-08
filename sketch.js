@@ -7,6 +7,7 @@ var boundaries = [];
 //var bg;
 var spring;
 
+
 let worldPos = {
     x: 0,
     y: 0,
@@ -33,19 +34,14 @@ function setup() {
 
     //limb = new Limb (width / 2, height / 2);
 
-    spring = new Spring();
+     spring = new Spring();
+     springBod = new Spring();
+     body = new Body(width/2, height/2);
+     box = new Box(width / 2, height / 2, 30, 30);
 
-    spring = new Spring();
-    springBod = new Spring();
-    body = new Body(width / 2, height / 2);
-    box = new Box(width / 2, height / 2, 30, 30);
-
-
-    box = new Box(width / 2, height / 2, 30, 30);
-
-    boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10, 50));
-    boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10, 50));
-    boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), width / 2 - 100, 10, 50));
+    boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 100));
+    boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 100));
+    boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), width / 2 - 100, 100));
 }
 
 
