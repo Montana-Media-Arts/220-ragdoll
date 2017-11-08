@@ -85,11 +85,19 @@ function Box(x, y, w, h) {
         push();
         translate(pos.x, pos.y);
         rotate(a);
+<<<<<<< HEAD
         fill(0);
         noStroke();
         //rect(0, 0, this.w, this.h);
         rotate(PI);
         image(this.img, -14, -20, this.w*2, this.h*2);
+=======
+        // fill(c-10, c, c+10);
+        fill(175);
+        stroke(200);
+        strokeWeight(2);
+        rect(0, 0, this.w, this.h);
+>>>>>>> origin/master
         pop();
     };
 
