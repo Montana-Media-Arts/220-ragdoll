@@ -72,6 +72,7 @@ function draw() {
 
     noStroke();
     //box.display();
+    
 
     body.display(head, larm, rarm, torsoHi, torsoLo, lleg, rleg);
 

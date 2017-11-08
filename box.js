@@ -23,6 +23,7 @@ function Box(x, y, w, h) {
     fd1.restitution = 0.6;
 
 
+
     // Create the body
     this.body = world.CreateBody(bd);
     // Attach the fixture

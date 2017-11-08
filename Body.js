@@ -24,6 +24,7 @@ function Body(x, y) {
      rjd.Initialize(this.shoulders.body, this.rightArm.body, this.shoulders.body.GetWorldCenter());
      joint = world.CreateJoint(rjd); //attach the right arm to shoulder
 
+
      this.anchor = scaleToPixels(this.torsoHi.body.GetWorldCenter());
 
      rjd.Initialize(this.torsoLo.body, this.torsoHi.body, this.torsoLo.body.GetWorldCenter());
