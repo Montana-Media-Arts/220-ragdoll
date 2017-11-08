@@ -1,9 +1,11 @@
 function Body(x, y) {
 
-     this.torso = new Box(x, y - 30, 120, 10, false);
-     this.leftArm = new Box(x, y, 10, 40, false);
-     this.rightArm = new Box(x, y, 10, 60, false);
+     this.torso = new Box(x, y, 120, 10, false);
+     this.leftArm = new Box(x, y, 10, 30, false);
+     this.rightArm = new Box(x, y, 10, 30, false);
      this.head = new Box(x + 30, y, 15, 15, false);
+     this.leftLeg = new Box(x-5, y, 10, 60, 60, false);
+     this.rightLeg = new Box(x+5, y, 10, 60, 60, false);
 
 
      // Define joint as between two bodies
@@ -11,6 +13,8 @@ function Body(x, y) {
 
      rjd.Initialize(this.torso.body, this.leftArm.body, this.torso.body.GetWorldCenter());
      joint = world.CreateJoint(rjd);
+     rjd.lowerAngle = 3.9;
+     rjd.upperAngle = 5.49;
 
      rjd.Initialize(this.torso.body, this.rightArm.body, this.torso.body.GetWorldCenter());
      joint = world.CreateJoint(rjd);
@@ -21,11 +25,19 @@ function Body(x, y) {
 
 
 
+     rjd.Initialize(this.torso.body, this.leftLeg.body, this.torso.body.GetWorldCenter());
+     joint = world.CreateJoint(rjd);
+
+     rjd.Initialize(this.torso.body, this.rightLeg.body, this.torso.body.GetWorldCenter());
+     joint = world.CreateJoint(rjd);
+
      this.display = function() {
           this.torso.display();
           this.leftArm.display();
           this.rightArm.display();
           this.head.display();
+          this.leftLeg.display();
+          this.rightLeg.display();
 
           this.anchor = scaleToPixels(this.torso.body.GetWorldCenter());
           fill(0);
