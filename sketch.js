@@ -9,7 +9,9 @@ var spring;
 
 let worldPos = {
     x: 0,
-    y: 0
+    y: 0,
+    mouseX: 0,
+    mouseY: 0
 };
 
 //function preload() {
@@ -50,12 +52,14 @@ function draw() {
     push();
     worldPos = findCenter(box);
     translate(-worldPos.x, -worldPos.y);
+    worldPos.mouseX = mouseX + worldPos.x;
+    worldPos.mouseY = mouseY + worldPos.y;
 
 
     box.display();
 
 
-    spring.update(mouseX, mouseY);
+    spring.update(worldPos.mouseX, worldPos.mouseY);
     spring.display();
 
     //limb.display();
@@ -84,7 +88,7 @@ function mouseReleased() {
 }
 
 function mousePressed() {
-    if (box.contains(mouseX, mouseY)) {
-        spring.bind(mouseX, mouseY, box);
+    if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
+        spring.bind(worldPos.mouseX, worldPos.mouseY, box);
     }
 }
