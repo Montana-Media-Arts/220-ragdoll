@@ -18,18 +18,20 @@ var body;
 //function preload() {
 //  bg = loadImage("backgrounds/skyone.jpg");
 //}
-var head, rleg, torso, lleg, rarm, larm;
+var head, rleg, uppertorso, lowtorso, lleg, rarm, larm;
+
 //
  function preload(){
   head= loadImage("bodyImg/coralinehead.png");
   rleg = loadImage("bodyImg/coralineRleg.png")
-  torsoHi= loadImage("bodyImg/coralineUpperTorso.png");
-  torsoLo = loadImage("bodyImg/coralineLowerTorso.png")
+  uppertorso= loadImage("bodyImg/coralineUpperTorso.png");
+  lowtorso = loadImage("bodyImg/coralineLowerTorso.png")
   lleg = loadImage("bodyImg/coralineLleg.png");
   rarm= loadImage("bodyImg/coralineRarm.png");
   larm = loadImage("bodyImg/coralineLarm.png");
+};
 
-var body;
+
 
 function setup() {
 
@@ -43,7 +45,7 @@ function setup() {
 
      //limb = new Limb (width / 2, height / 2);
      body = new Body(height / 2, width / 2);
-     box = new Box(width / 2, height / 2, 30, 30);
+     // box = new Box(width / 2, height / 2, 30, 30);
 
      boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10, 50));
      boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10, 50));
@@ -60,13 +62,13 @@ function draw() {
 
      /* CREATE CAMERA SANBOX */
      push();
-     worldPos = findCenter(box);
+     worldPos = findCenter(body);
      translate(-worldPos.x, -worldPos.y);
      worldPos.mouseX = mouseX + worldPos.x;
      worldPos.mouseY = mouseY + worldPos.y;
 
      noStroke();
-     box.display();
+     // box.display();
 
      body.display();
 
@@ -95,17 +97,20 @@ function mouseReleased() {
 function mousePressed() {
 
      // Box mouse control
-     if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
-          spring.bind(worldPos.mouseX, worldPos.mouseY, box);
-     }
+     // if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
+     //      spring.bind(worldPos.mouseX, worldPos.mouseY, box);
+     // }
      if (body.torsoLo.contains(worldPos.mouseX, worldPos.mouseY)) {
           springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torsoLo);
+     }
+     if (body.torsoHi.contains(worldPos.mouseX, worldPos.mouseY)) {
+          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torsoHi);
      }
      if (body.leftLeg.contains(worldPos.mouseX, worldPos.mouseY)) {
           springBod.bind(worldPos.mouseX, worldPos.mouseY, body.leftLeg);
      }
      if (body.rightLeg.contains(worldPos.mouseX, worldPos.mouseY)) {
-          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.righttLeg);
+          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightLeg);
      }
      if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
           springBod.bind(worldPos.mouseX, worldPos.mouseY, body.leftArm);
