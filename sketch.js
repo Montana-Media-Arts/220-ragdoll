@@ -113,6 +113,9 @@ function mousePressed() {
      if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
           springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
      }
+     if (body.head.contains(worldPos.mouseX, worldPos.mouseY)) {
+          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
+     }
 }
 
 

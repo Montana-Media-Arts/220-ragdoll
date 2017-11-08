@@ -19,7 +19,7 @@ function Box(x, y, w, h) {
     // Some physics
     fd1.density = 10.0;
     fd1.friction = 1;
-    fd1.restitution = 0.6;
+    fd1.restitution = 0.1;
 
     // Create the body
     this.body = world.CreateBody(bd);
@@ -43,7 +43,7 @@ function Box(x, y, w, h) {
 
     this.killBody = function() {
         world.DestroyBody(this.body);
-    }
+    };
 
     this.done = function() {
         var pos = scaleToPixels(this.body.GetPosition());
