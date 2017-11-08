@@ -7,6 +7,11 @@ var boundaries = [];
 //var bg;
 var spring;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
 let worldPos = {
     x: 0,
     y: 0,
