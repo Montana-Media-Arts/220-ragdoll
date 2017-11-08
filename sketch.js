@@ -105,7 +105,6 @@ function mousePressed() {
      if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
           spring.bind(worldPos.mouseX, worldPos.mouseY, box);
      }
-
      if (body.torso.contains(worldPos.mouseX, worldPos.mouseY)) {
           springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torso);
      }
