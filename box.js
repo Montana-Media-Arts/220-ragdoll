@@ -61,6 +61,15 @@ function Box(x, y, w, h) {
         return false;
     };
 
+    // this.done = function() {
+    //     var pos = scaleToPixels(this.body.GetPosition());
+    //     if (pos.y > height + this.w * this.h) {
+    //         this.killBody();
+    //         return true;
+    //     }
+    //     return false;
+    // };
+
 
     // Drawing the box
     this.display = function() {
