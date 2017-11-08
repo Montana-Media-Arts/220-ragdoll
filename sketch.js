@@ -66,8 +66,8 @@ function draw() {
 
     body.display();
 
-    spring.update(mouseX,mouseY);
-    springBod.update(mouseX,mouseY);
+    spring.update(worldPos.mouseX,worldPos.mouseY);
+    springBod.update(worldPos.mouseX,worldPos.mouseY);
 
     spring.display();
     springBod.display();
@@ -102,18 +102,18 @@ function mouseReleased() {
 
 function mousePressed() {
 // Box mouse control
-     if (box.contains(mouseX, mouseY)) {
-          spring.bind(mouseX, mouseY, box);
+     if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
+          spring.bind(worldPos.mouseX, worldPos.mouseY, box);
      }
 
-     if (body.torso.contains(mouseX, mouseY)) {
-          springBod.bind(mouseX, mouseY, body.torso);
+     if (body.torso.contains(worldPos.mouseX, worldPos.mouseY)) {
+          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torso);
      }
-     if (body.leftArm.contains(mouseX, mouseY)) {
-          springBod.bind(mouseX, mouseY, body.leftArm);
+     if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
+          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.leftArm);
      }
-     if (body.leftArm.contains(mouseX, mouseY)) {
-          springBod.bind(mouseX, mouseY, body.rightArm);
+     if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
+          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
      }
 }
 
