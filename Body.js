@@ -30,6 +30,9 @@ function Body(x, y) {
      joint = world.CreateJoint(rjd);  //attach the two torsos
 
      rjd.Initialize(this.head.body, this.torsoHi.body, this.head.body.GetWorldCenter());
+     rjd.enableLimit = true;
+     rjd.upperAngle = PI/8;
+     rjd.lowerAngle = -PI/8;
      joint = world.CreateJoint(rjd); //attach the head to torso
 
      rjd.Initialize(this.torsoLo.body, this.pelvis.body, this.pelvis.body.GetWorldCenter());
