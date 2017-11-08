@@ -9,8 +9,19 @@
     //add feet/hands
     //define an arm and leg parameter and limit rotation accordingly
 
-//if you leave a comment leave your initials too -sr
 
+var head, rleg, body, lleg, rarm, larm;
+
+//if you leave a comment leave your initials too -sr
+function preload(){
+head= loadImage("bodyImg/coralinehead.png");
+rleg = loadImage("bodyImg/coralineRleg.png")
+body= loadImage("bodyImg/coralinebody.png");
+lleg = loadImage("bodyImg/coralineLleg.png");
+rarm= loadImage("bodyImg/coralineRarm.png");
+larm = loadImage("bodyImg/coralineLarm.png");
+
+}
 
 function Limb(x, y) {
   this.box1 = new Box(x, y, 20, 60);
@@ -31,7 +42,7 @@ function Limb(x, y) {
     var worldPoint = scaleToWorld(x, y);
     var f = this.box2.body.GetFixtureList();
     var c = this.box1.body.GetFixtureList();
-    console.log(c);
+    //console.log(c);
     var inside = f.TestPoint(worldPoint);
     return inside;
   };
