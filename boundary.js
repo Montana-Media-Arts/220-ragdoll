@@ -33,9 +33,9 @@ function Boundary(x_,y_, w_, h_, radius) {
 
   // Draw the boundary, if it were at an angle we'd have to do something fancier
   this.display = function() {
-    fill(34, 41, 57);
+    fill(184, 18, 18);
     stroke(127);
-      ellipse(this.x,this.y,this.r,this.r);
+    ellipse(this.x,this.y,this.r,this.r);
   };
 
   this.move = function() {
@@ -47,4 +47,4 @@ function Boundary(x_,y_, w_, h_, radius) {
       this.y = height-5;
     }
   }
-};
+}
