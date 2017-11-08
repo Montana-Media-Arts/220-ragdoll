@@ -7,7 +7,6 @@ var boundaries = [];
 //var bg;
 var spring;
 
-
 let worldPos = {
     x: 0,
     y: 0,
@@ -105,7 +104,6 @@ function mousePressed() {
      if (box.contains(worldPos.mouseX, worldPos.mouseY)) {
           spring.bind(worldPos.mouseX, worldPos.mouseY, box);
      }
-
      if (body.torso.contains(worldPos.mouseX, worldPos.mouseY)) {
           springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torso);
      }
