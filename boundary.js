@@ -38,13 +38,4 @@ function Boundary(x_,y_, w_, h_, radius) {
     ellipse(this.x,this.y,this.r,this.r);
   };
 
-  this.move = function() {
-    // this.y = y_--;
-  };
-
-  this.reset = function() {
-    if (this.y < 0) {
-      this.y = height-5;
-    }
-  };
 }

@@ -91,8 +91,7 @@ function draw() {
 
     for (var i = 0; i < boundaries.length; i++) {
         boundaries[i].display();
-        boundaries[i].move();
-        boundaries[i].reset();
+  
     }
     /* END CAMERA SANBOX */
 
