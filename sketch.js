@@ -91,7 +91,12 @@ function draw() {
 
     for (var i = 0; i < boundaries.length; i++) {
         boundaries[i].display();
-  
+        //BOUNDARY DELETION - not yet working
+        if (boundaries[i].done()) {
+      boundaries.splice(i,1);
+    }
+    //end boundary deletion
+
     }
     /* END CAMERA SANBOX */
 

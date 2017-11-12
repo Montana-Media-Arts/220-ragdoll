@@ -38,4 +38,23 @@ function Boundary(x_,y_, w_, h_, radius) {
     ellipse(this.x,this.y,this.r,this.r);
   };
 
+
+  //BUBBLE DELETION - not currently working
+  this.killBody = function() {
+    world.DestroyBody(this.body);
+  }
+
+  // Is the particle ready for deletion?
+  this.done = function() {
+    // Let's find the screen position of the particle
+    var pos = scaleToPixels(this.body.GetPosition());
+    // Is it off the bottom of the screen?
+    if (pos.y > height+this.w*this.h) {
+      this.killBody();
+      return true;
+    }
+    return false;
+  }
+}
+
 }
