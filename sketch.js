@@ -89,7 +89,7 @@ function draw() {
     // limb.display();
 
 
-    for (var i = 0; i < boundaries.length; i++) {
+    for (var i = boundaries.length-1; i >= 0; i--) {
         boundaries[i].display();
         //BOUNDARY DELETION - not yet working
         if (boundaries[i].done()) {
