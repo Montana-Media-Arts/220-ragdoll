@@ -50,7 +50,7 @@ function Boundary(x_,y_, w_, h_, radius) {
     // Let's find the screen position of the particle
     var pos = scaleToPixels(this.body.GetPosition());
     // Is it off the bottom of the screen?
-    if (pos.y > height+this.w*this.h) {
+    if (pos.y < 0+this.w*this.h) {
       this.killBody();
       return true;
     }
