@@ -29,7 +29,8 @@ function Boundary(x_,y_, w_, h_, radius) {
   fd.shape.m_radius = scaleToWorld( this.r );
 
   // fd.shape.SetAsBox(this.w/(scaleFactor*2), this.h/(scaleFactor*2));
-    this.body = world.CreateBody(bd).CreateFixture(fd);
+    this.body = world.CreateBody(bd)
+    this.body.CreateFixture(fd);
 
   // Draw the boundary, if it were at an angle we'd have to do something fancier
   this.display = function() {
