@@ -5,14 +5,12 @@
 // A fixed boundary class
 
   // A boundary is a simple rectangle with x,y,width,and height
-function Boundary(x_,y_, w_, h_, radius) {
+function Boundary(x_,y_,radius) {
   // But we also have to make a body for box2d to know about it
   // Body b;
 
   this.x = x_;
   this.y = y_;
-  this.w = w_;
-  this.h = h_;
   this.r = radius;
 
   var fd = new box2d.b2FixtureDef();
