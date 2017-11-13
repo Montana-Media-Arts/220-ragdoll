@@ -88,7 +88,7 @@ function draw() {
     // limb.display();
 for (var b = 0; b < 5; b++) {
   boundaries.push(new Boundary(random(worldPos.x, worldPos.x+width),random(worldPos.y, worldPos.y+height), 100));
-  Boundary.display();
+  boundaries[b].display();
 
 }
     // boundaries.push(new Boundary(3 * width / 4, height - 50, 100));
