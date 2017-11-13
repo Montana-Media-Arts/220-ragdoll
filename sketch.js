@@ -2,7 +2,7 @@
 var world;
 // A list for all of our boxes
 var box;
-var bodY; //not used - for experiment with bubble spawn height
+//var bodY; //not used - for experiment with bubble spawn height
 
 var boundaries = [];
 //var bg;
@@ -50,7 +50,7 @@ function setup() {
      springBod = new Spring(mouseX, mouseY);
 
      //limb = new Limb (width / 2, height / 2);
-     body = new Body(height / 2, bodY);
+     body = new Body(width/2, height/2);
      // box = new Box(width / 2, height / 2, 30, 30);
 
 }
@@ -87,7 +87,7 @@ function draw() {
 
     // limb.display();
 for (var b = 0; b < 5; b++) {
-  boundaries.push(new Boundary(random(worldPos.x, worldPos.x+width),random(worldPos.y, worldPos.y+height), 100));
+  boundaries.push(new Boundary(random(worldPos.x, worldPos.x+width),random(worldPos.y, worldPos.y+height), 35));
   boundaries[b].display();
 
 }
@@ -98,7 +98,8 @@ for (var b = 0; b < 5; b++) {
       //whoops this does work should've gotten rid of that comment
         if (boundaries[i].done()) {
       boundaries.splice(i,1);
-     // boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(10,100), 100, 10, 70));
+      boundaries[i].push(new Boundary(random(worldPos.x, worldPos.x+width),random(worldPos.y, worldPos.y+height), 35));
+     //boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(10,100), 100, 10, 70));
      }
 
      }

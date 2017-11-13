@@ -2,7 +2,7 @@ function Body(x, y) {
 
   this.torsoHi = new Box(x, y + 20, 10, 30);
   this.torsoLo = new Box(x, y - 15, 10, 40);
-  // this.shoulders = new Box(x, y+20, 30, 10);
+  // this.shoulders = new Box(x, y+20, 30, 10); //i mean, the shoulders and pelvis worked, i just didn't display them beause we don't have graphics for them. -sr
   this.leftArm = new Box(x + 15, y - 10, 10, 40);
   this.rightArm = new Box(x - 15, y - 10, 10, 40);
   this.head = new Box(x, y + 50, 25, 25);
