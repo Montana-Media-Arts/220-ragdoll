@@ -53,10 +53,6 @@ function setup() {
      body = new Body(height / 2, bodY);
      // box = new Box(width / 2, height / 2, 30, 30);
 
-
-    boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10, 50));
-    boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10, 50));
-    boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), width / 2 - 100, 10, 50));
 }
 
 
@@ -91,6 +87,9 @@ function draw() {
 
     // limb.display();
 
+    boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10, 100));
+    boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10, 100));
+    boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), width / 2 - 100, 10, 100));
 
     for (var i = boundaries.length-1; i >= 0; i--) {
         boundaries[i].display();
