@@ -88,13 +88,13 @@ function draw() {
     // limb.display();
 for (var b = 0; b < 5; b++) {
   boundaries.push(new Boundary(random(worldPos.x, worldPos.x+width),random(worldPos.y, worldPos.y+height), 100));
+  boundaries[i].display();
 
 }
     // boundaries.push(new Boundary(3 * width / 4, height - 50, 100));
     // boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), 100));
 
     for (var i = boundaries.length-1; i >= 0; i--) {
-        boundaries[i].display();
         //BOUNDARY DELETION - not yet working
         if (boundaries[i].done()) {
       boundaries.splice(i,1);
