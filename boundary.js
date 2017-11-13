@@ -36,7 +36,7 @@ function Boundary(x_,y_, w_, h_, radius) {
   this.display = function() {
     fill(184, 18, 18);
     stroke(127);
-    ellipse(this.x,this.y,this.r,this.r);
+    ellipse(this.x,this.y,2*this.r,2*this.r);
 
     fill('black');
     text(this.x, this.x + 50, this.y);
