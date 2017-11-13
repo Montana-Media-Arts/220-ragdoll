@@ -34,11 +34,16 @@ function Boundary(x_,y_, w_, h_, radius) {
 
   // Draw the boundary, if it were at an angle we'd have to do something fancier
   this.display = function() {
-    fill(184, 18, 18);
+    fill(56, 56, 56);
     stroke(127);
     ellipse(this.x,this.y,2*this.r,2*this.r);
 
     fill('black');
+    ellipse(this.x+this.r/4,this.y+this.r/4,this.r/4,this.r/4);
+    ellipse(this.x-this.r/4,this.y+this.r/4,this.r/4,this.r/4);
+    ellipse(this.x+this.r/4,this.y-this.r/4,this.r/4,this.r/4);
+    ellipse(this.x-this.r/4,this.y-this.r/4,this.r/4,this.r/4);
+
     text(this.x, this.x + 50, this.y);
     text(this.y, this.x + 50, this.y + 20); //identifying x and y
   };
