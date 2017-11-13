@@ -58,7 +58,6 @@ function setup() {
 
 function draw() {
 
-
     background(2, 87, 142);
 
     // We must always step through time!
@@ -98,7 +97,7 @@ function draw() {
     //end boundary deletion
       //CREATING BUBBLES
         else if (boundaries.lenth <= 3) {
-          boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10, 50));
+          boundaries.push(new Boundary(width / 2, height+this.w*this.h + 100, 100, 10, 50));
         }
 
     }
