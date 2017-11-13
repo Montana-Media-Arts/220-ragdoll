@@ -94,15 +94,14 @@ for (var b = 0; b < 5; b++) {
     // boundaries.push(new Boundary(3 * width / 4, height - 50, 100));
     // boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), 100));
 
-    // for (var i = boundaries.length-1; i >= 0; i--) {
-    //     //BOUNDARY DELETION - not yet working
-    //     if (boundaries[i].done()) {
-    //   boundaries.splice(i,1);
-      // boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(10,100), 100, 10, 70));
-    // }
-    //end boundary deletion
+    for (var i = boundaries.length-1; i >= 0; i--) {
+      //whoops this does work should've gotten rid of that comment
+        if (boundaries[i].done()) {
+      boundaries.splice(i,1);
+     // boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(10,100), 100, 10, 70));
+     }
 
-    // }
+     }
     /* END CAMERA SANBOX */
 }
 
