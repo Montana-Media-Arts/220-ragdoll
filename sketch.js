@@ -2,6 +2,7 @@
 var world;
 // A list for all of our boxes
 var box;
+var bodY; //not used - for experiment with bubble spawn height
 
 var boundaries = [];
 //var bg;
@@ -39,6 +40,7 @@ var head, rleg, uppertorso, lowtorso, lleg, rarm, larm;
 function setup() {
 
     createCanvas(windowWidth, windowHeight);
+    var bodY = width/2; //not used - for experiment with bubble spawn height
 
 
     // Initialize box2d physics and create the world
@@ -48,7 +50,7 @@ function setup() {
      springBod = new Spring(mouseX, mouseY);
 
      //limb = new Limb (width / 2, height / 2);
-     body = new Body(height / 2, width / 2);
+     body = new Body(height / 2, bodY);
      // box = new Box(width / 2, height / 2, 30, 30);
 
 
@@ -95,7 +97,7 @@ function draw() {
         //BOUNDARY DELETION - not yet working
         if (boundaries[i].done()) {
       boundaries.splice(i,1);
-      boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(1,100), 100, 10, 70));
+      boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(10,100), 100, 10, 70));
     }
     //end boundary deletion
 
