@@ -96,6 +96,9 @@ function draw() {
       boundaries.splice(i,1);
     }
     //end boundary deletion
+        else if (boundaries.lenth <= 3) {
+          boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10, 50));
+        }
 
     }
     /* END CAMERA SANBOX */
