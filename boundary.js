@@ -54,7 +54,7 @@ function Boundary(x_,y_, w_, h_, radius) {
     // Let's find the screen position of the particle
     var pos = scaleToPixels(this.body.GetPosition());
     // Is it off the bottom of the screen?
-    if (pos.y < 0/*+this.w*this.h/*/) {  //commenting out this.w*this.h makes the bubbles appear, but they still don't disappear after leaving the screen
+    if (pos.y < 0+this.w*this.h) {  //commenting out this.w*this.h makes the bubbles appear, but they still don't disappear after leaving the screen
       this.killBody();
       return true;
     }

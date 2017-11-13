@@ -93,12 +93,9 @@ function draw() {
         //BOUNDARY DELETION - not yet working
         if (boundaries[i].done()) {
       boundaries.splice(i,1);
+      boundaries.push(new Boundary(width / 2, 1000, 100, 10, 50));
     }
     //end boundary deletion
-      //CREATING BUBBLES
-        else if (boundaries.lenth <= 3) {
-          boundaries.push(new Boundary(width / 2, height+this.w*this.h + 100, 100, 10, 50));
-        }
 
     }
     /* END CAMERA SANBOX */
