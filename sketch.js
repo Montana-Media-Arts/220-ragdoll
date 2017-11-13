@@ -86,10 +86,10 @@ function draw() {
     springBod.display();
 
     // limb.display();
-for (var b = 0; b < 20; b++) {
-  boundaries.push(new Boundary(random(0,width),random(0, height), 100));
-
-}
+// for (var b = 0; b < 20; b++) {
+//   boundaries.push(new Boundary(random(0,width),random(0, height), 100));
+//
+// }
     // boundaries.push(new Boundary(3 * width / 4, height - 50, 100));
     // boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), 100));
 
