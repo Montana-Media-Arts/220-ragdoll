@@ -5,14 +5,12 @@
 // A fixed boundary class
 
   // A boundary is a simple rectangle with x,y,width,and height
-function Boundary(x_,y_, w_, h_, radius) {
+function Boundary(x_,y_,radius) {
   // But we also have to make a body for box2d to know about it
   // Body b;
 
   this.x = x_;
   this.y = y_;
-  this.w = w_;
-  this.h = h_;
   this.r = radius;
 
   var fd = new box2d.b2FixtureDef();
@@ -29,22 +27,40 @@ function Boundary(x_,y_, w_, h_, radius) {
   fd.shape.m_radius = scaleToWorld( this.r );
 
   // fd.shape.SetAsBox(this.w/(scaleFactor*2), this.h/(scaleFactor*2));
-    this.body = world.CreateBody(bd).CreateFixture(fd);
+    this.body = world.CreateBody(bd)
+    this.body.CreateFixture(fd);
 
   // Draw the boundary, if it were at an angle we'd have to do something fancier
   this.display = function() {
-    fill(184, 18, 18);
+    fill(25, 25, 25);
     stroke(127);
-    ellipse(this.x,this.y,this.r,this.r);
+    ellipse(this.x,this.y,2*this.r,2*this.r);
+
+    fill('black');
+    ellipse(this.x+this.r/4,this.y+this.r/4,this.r/4,this.r/4);
+    ellipse(this.x-this.r/4,this.y+this.r/4,this.r/4,this.r/4);
+    ellipse(this.x+this.r/4,this.y-this.r/4,this.r/4,this.r/4);
+    ellipse(this.x-this.r/4,this.y-this.r/4,this.r/4,this.r/4);
+
+    text(this.x, this.x + 50, this.y);
+    text(this.y, this.x + 50, this.y + 20); //identifying x and y
   };
 
-  this.move = function() {
-    // this.y = y_--;
-  };
 
-  this.reset = function() {
-    if (this.y < 0) {
-      this.y = height-5;
+  //BUBBLE DELETION - not currently working
+  this.killBody = function() {
+    world.DestroyBody(this.body);
+  }
+
+  // Is the particle ready for deletion?
+  this.done = function() {
+    // Let's find the screen position of the particle
+    var pos = scaleToPixels(this.body.GetPosition());
+    // Is it off the bottom of the screen?
+    if (pos.y < 0+this.w*this.h) {  //commenting out this.w*this.h makes the bubbles appear, but they still don't disappear after leaving the screen
+      this.killBody();
+      return true;
     }
-  };
+    return false;
+  }
 }

@@ -23,6 +23,7 @@ function Box(x, y, w, h) {
     fd1.restitution = 0.6;
 
 
+
     // Create the body
     this.body = world.CreateBody(bd);
     // Attach the fixture
@@ -72,7 +73,7 @@ function Box(x, y, w, h) {
 
 
     // Drawing the box
-    this.display = function(c) {
+    this.display = function(img) {
         // Get the body's position
         var pos = scaleToPixels(this.body.GetPosition());
         this.anchor = pos;
@@ -80,15 +81,29 @@ function Box(x, y, w, h) {
         var a = this.body.GetAngleRadians();
 
         // Draw it!
-        this.img = c;
+        // this.img = head;
+        // this.img = uppertorso;
+        // this.img = lowtorso;
+        // this.img = rarm;
+        // this.img = larm;
+        // this.img = rleg;
+        // this.img = lleg;
+
         rectMode(CENTER);
         push();
         translate(pos.x, pos.y);
         rotate(a);
-        fill(0);
-        noStroke();
-        //rect(0, 0, this.w, this.h);
-        image(this.img, 0, 0, this.w, this.h);
+
+        // fill(c-10, c, c+10);
+        // fill(175);
+        // stroke(200);
+        // strokeWeight(2);
+        // rect(0, 0, this.w, this.h);
+        push();
+        rotate(PI);
+        image(img, -this.w/2, -this.h/2, this.w, this.h);
+        pop();
+
         pop();
     };
 
