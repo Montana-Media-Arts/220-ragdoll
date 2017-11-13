@@ -96,6 +96,7 @@ function draw() {
       boundaries.splice(i,1);
     }
     //end boundary deletion
+      //CREATING BUBBLES
         else if (boundaries.lenth <= 3) {
           boundaries.push(new Boundary(width / 2, height / 2 + 100, 100, 10, 50));
         }
