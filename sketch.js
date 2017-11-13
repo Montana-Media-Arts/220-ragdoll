@@ -7,6 +7,8 @@ var boundaries = [];
 //var bg;
 var spring;
 
+var bubbleHeight = 1000;
+
 let worldPos = {
     x: 0,
     y: 0,
@@ -93,7 +95,7 @@ function draw() {
         //BOUNDARY DELETION - not yet working
         if (boundaries[i].done()) {
       boundaries.splice(i,1);
-      boundaries.push(new Boundary(width / 2, 1000, 100, 10, 50));
+      boundaries.push(new Boundary(width / random(2,6), bubbleHeight + random(1,100), 500, 50, 100));
     }
     //end boundary deletion
 
