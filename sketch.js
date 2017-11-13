@@ -98,13 +98,12 @@ for (var b = 0; b < 20; b++) {
         //BOUNDARY DELETION - not yet working
         if (boundaries[i].done()) {
       boundaries.splice(i,1);
-      boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(10,100), 100, 10, 70));
+      // boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(10,100), 100, 10, 70));
     }
     //end boundary deletion
 
     }
     /* END CAMERA SANBOX */
-
 }
 
 function mouseReleased() {
