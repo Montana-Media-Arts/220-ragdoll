@@ -34,7 +34,7 @@ function Boundary(x_,y_, w_, h_, radius) {
 
   // Draw the boundary, if it were at an angle we'd have to do something fancier
   this.display = function() {
-    fill(56, 56, 56);
+    fill(25, 25, 25);
     stroke(127);
     ellipse(this.x,this.y,2*this.r,2*this.r);
 
