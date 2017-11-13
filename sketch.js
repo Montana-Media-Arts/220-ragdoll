@@ -95,7 +95,7 @@ function draw() {
         //BOUNDARY DELETION - not yet working
         if (boundaries[i].done()) {
       boundaries.splice(i,1);
-      boundaries.push(new Boundary(width / random(2,6), bubbleHeight + random(1,100), 500, 50, 100));
+      boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(1,100), 100, 10, 70));
     }
     //end boundary deletion
 
