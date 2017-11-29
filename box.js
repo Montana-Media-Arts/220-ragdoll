@@ -17,10 +17,10 @@ function Box(x, y, w, h) {
     fd1.shape.SetAsBox(scaleToWorld(this.w / 2), scaleToWorld(this.h / 2));
 
     // Some physics
-    fd1.density = 10.0;
+    fd1.density = 0.1;
 
-    fd1.friction = 0.6;
-    fd1.restitution = 0.6;
+    fd1.friction = 0.01;
+    fd1.restitution = 1;
 
 
 
@@ -101,7 +101,7 @@ function Box(x, y, w, h) {
         // rect(0, 0, this.w, this.h);
         push();
         rotate(PI);
-        image(img, -this.w/2, -this.h/2, this.w, this.h);
+        image(img, -this.w / 2, -this.h / 2, this.w, this.h);
         pop();
 
         pop();

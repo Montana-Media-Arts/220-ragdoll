@@ -24,15 +24,15 @@ var body;
 var head, rleg, uppertorso, lowtorso, lleg, rarm, larm;
 
 //
- function preload(){
-  head= loadImage("bodyImg/coralinehead.png");
-  rleg = loadImage("bodyImg/coralineRleg.png")
-  uppertorso= loadImage("bodyImg/coralineUpperTorso.png");
-  lowtorso = loadImage("bodyImg/coralineLowerTorso.png")
-  lleg = loadImage("bodyImg/coralineLleg.png");
-  rarm= loadImage("bodyImg/coralineRarm.png");
-  larm = loadImage("bodyImg/coralineLarm.png");
-};
+function preload() {
+    head = loadImage("bodyImg/coralinehead.png");
+    rleg = loadImage("bodyImg/coralineRleg.png");
+    uppertorso = loadImage("bodyImg/coralineUpperTorso.png");
+    lowtorso = loadImage("bodyImg/coralineLowerTorso.png");
+    lleg = loadImage("bodyImg/coralineLleg.png");
+    rarm = loadImage("bodyImg/coralineRarm.png");
+    larm = loadImage("bodyImg/coralineLarm.png");
+}
 
 
 
@@ -40,18 +40,29 @@ var head, rleg, uppertorso, lowtorso, lleg, rarm, larm;
 function setup() {
 
     createCanvas(windowWidth, windowHeight);
-    var bodY = width/2; //not used - for experiment with bubble spawn height
+    var bodY = width / 2; //not used - for experiment with bubble spawn height
 
 
     // Initialize box2d physics and create the world
-    world = createWorld();
-    //world.SetGravity(new box2d.b2Vec2(0, 10)); < this didn't even do anything
-     spring = new Spring(mouseX, mouseY);
-     springBod = new Spring(mouseX, mouseY);
+    world = createWorld(new box2d.b2Vec2(0,10));
+    // world.SetGravity(new box2d.b2Vec2(0, 0.1)); // <- this didn't even do anything
+    spring = new Spring(mouseX, mouseY);
+    springBod = new Spring(mouseX, mouseY);
 
-     //limb = new Limb (width / 2, height / 2);
-     body = new Body(width/2, height/2);
-     // box = new Box(width / 2, height / 2, 30, 30);
+    //limb = new Limb (width / 2, height / 2);
+    body = new Body(width / 2, height / 2);
+    // box = new Box(width / 2, height / 2, 30, 30);
+
+    // initialize some buttons
+    while (boundaries.length < 40) {
+        boundaries.push(
+            new Boundary(
+                random( worldPos.x-width, worldPos.x+width*2 ),
+                random( worldPos.y, worldPos.y+height*4 ),
+                random(35, 250)
+            )
+        );
+    }
 
 }
 
@@ -79,30 +90,45 @@ function draw() {
 
     body.display();
 
-    spring.update(worldPos.mouseX,worldPos.mouseY);
-    springBod.update(worldPos.mouseX,worldPos.mouseY);
+    spring.update(worldPos.mouseX, worldPos.mouseY);
+    springBod.update(worldPos.mouseX, worldPos.mouseY);
 
     spring.display();
     springBod.display();
 
     // limb.display();
-for (var b = 0; b < 5; b++) {
-  boundaries[b].push(new Boundary(random(worldPos.x, worldPos.x+width),random(worldPos.y, worldPos.y+height), 35));
-  boundaries[b].display();
 
-}
+
+    while (boundaries.length < 40) {
+        boundaries.push(
+            new Boundary(
+                random( worldPos.x-width, worldPos.x+width*2 ),
+                random( worldPos.y+height*1.5, worldPos.y+height*4 ),
+                random(35, 250)
+            )
+        );
+    }
+
+    // for (var b = 0; b < 5; b++) {
+    //     boundaries[b] = new Boundary(random(worldPos.x, worldPos.x + width), random(worldPos.y, worldPos.y + height), 35);
+    //     boundaries[b].display();
+    //
+    // }
     // boundaries.push(new Boundary(3 * width / 4, height - 50, 100));
     // boundaries.push(new Boundary(width / 2 - 100, height * (2 / 3), 100));
 
-    for (var i = boundaries.length-1; i >= 0; i--) {
-      //whoops this does work should've gotten rid of that comment
-        if (boundaries[i].done()) {
-      boundaries.splice(i,1);
-      boundaries[i].push(new Boundary(random(worldPos.x, worldPos.x+width),random(worldPos.y, worldPos.y+height), 35));
-     //boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(10,100), 100, 10, 70));
-     }
+    for (var i = boundaries.length - 1; i >= 0; i--) {
 
-     }
+        boundaries[i].display();
+
+        //whoops this does work should've gotten rid of that comment
+        if (boundaries[i].done()) {
+            boundaries.splice(i, 1);
+            //boundaries.push(new Boundary((width/2) + random(-300,300) , bubbleHeight + random(10,100), 100, 10, 70));
+        }
+
+    }
+
     /* END CAMERA SANBOX */
 }
 
@@ -115,37 +141,40 @@ function mouseReleased() {
 
 function mousePressed() {
 
-     // Box mouse control
+    // Box mouse control
 
-     if (body.torsoLo.contains(worldPos.mouseX, worldPos.mouseY)) {
-          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torsoLo);
-     }
-     if (body.torsoHi.contains(worldPos.mouseX, worldPos.mouseY)) {
-          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torsoHi);
-     }
-     if (body.leftLeg.contains(worldPos.mouseX, worldPos.mouseY)) {
-          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.leftLeg);
-     }
-     if (body.rightLeg.contains(worldPos.mouseX, worldPos.mouseY)) {
-          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightLeg);
-     }
-     if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
-          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.leftArm);
-     }
-     if (body.rightArm.contains(worldPos.mouseX, worldPos.mouseY)) {
-          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
-     }
-     if (body.head.contains(worldPos.mouseX, worldPos.mouseY)) {
-          springBod.bind(worldPos.mouseX, worldPos.mouseY, body.head);
-     }
+    if (body.torsoLo.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torsoLo);
+    }
+    if (body.torsoHi.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.torsoHi);
+    }
+    if (body.leftLeg.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.leftLeg);
+    }
+    if (body.rightLeg.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightLeg);
+    }
+    if (body.leftArm.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.leftArm);
+    }
+    if (body.rightArm.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.rightArm);
+    }
+    if (body.head.contains(worldPos.mouseX, worldPos.mouseY)) {
+        springBod.bind(worldPos.mouseX, worldPos.mouseY, body.head);
+    }
 
 }
 
 
-function findCenter( centerObj ){
+function findCenter(centerObj) {
 
-    let x = centerObj.anchor.x - ( width/2);
-    let y = centerObj.anchor.y - ( height/2);
+    let x = centerObj.anchor.x - (width / 2);
+    let y = centerObj.anchor.y - (height / 2);
 
-    return { x: x, y: y };
+    return {
+        x: x,
+        y: y
+    };
 }
