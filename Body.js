@@ -1,13 +1,13 @@
 function Body(x, y) {
 
-    this.torsoHi = new Box(x, y + 20, 10, 40);
-    this.torsoLo = new Box(x, y - 15, 10, 60);
+    this.torsoHi = new Box(x, y + 20, 30, 60);
+    this.torsoLo = new Box(x, y - 20, 20, 80);
     // this.shoulders = new Box(x, y+20, 30, 10); //i mean, the shoulders and pelvis worked, i just didn't display them beause we don't have graphics for them. -sr
-    this.leftArm = new Box(x + 15, y - 10, 10, 40);
-    this.rightArm = new Box(x - 15, y - 10, 10, 40);
-    this.head = new Box(x, y + 55, 25, 25);
-    this.leftLeg = new Box(x - 10, y - 55, 10, 50);
-    this.rightLeg = new Box(x + 10, y - 55, 10, 50);
+    this.leftArm = new Box(x + 20, y - 10, 20, 60);
+    this.rightArm = new Box(x - 20, y - 10, 20, 60);
+    this.head = new Box(x, y + 55, 50, 50);
+    this.leftLeg = new Box(x - 15, y - 75, 20, 80);
+    this.rightLeg = new Box(x + 15, y - 75, 20, 80);
     // this.pelvis = new Box(x, y-35, 10, 20);
 
     this.anchor = scaleToPixels(this.torsoHi.body.GetWorldCenter());
@@ -62,13 +62,13 @@ function Body(x, y) {
 
         this.anchor = scaleToPixels(this.torsoHi.body.GetWorldCenter());
 
-        this.head.display(head); //black
         this.leftArm.display(larm); //white
         this.rightArm.display(rarm); //dark grey
         this.torsoHi.display(uppertorso); //black
         this.torsoLo.display(lowtorso); //dark dark grey
         this.leftLeg.display(lleg); //black
         this.rightLeg.display(rleg); //dark dark grey
+        this.head.display(head); //black
 
     };
 }
