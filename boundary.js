@@ -42,8 +42,8 @@ function Boundary(x_, y_, radius) {
         ellipse(this.x + this.r / 4, this.y - this.r / 4, this.r / 4, this.r / 4);
         ellipse(this.x - this.r / 4, this.y - this.r / 4, this.r / 4, this.r / 4);
 
-        text(this.x, this.x + 50, this.y);
-        text(this.y, this.x + 50, this.y + 20); //identifying x and y
+        // text(this.x, this.x + 50, this.y);
+        // text(this.y, this.x + 50, this.y + 20); //identifying x and y
     };
 
 
